@@ -1,11 +1,6 @@
 package br.com.datasol;
 
-import java.util.ArrayList;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
-import br.com.datasol.conexaoweb.ConexaoHTTPClient;
+import br.com.datasol.dao.ConfigDAO;
 import br.com.datasol.R;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -18,10 +13,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Login extends Activity {
-	private String usuario="ds123v";
+	private String usuario="datasol";
 	private String senha="ds2009";
 	EditText etUsuario;
 	EditText etSenha;
@@ -46,13 +40,25 @@ public class Login extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				ConfigDAO configDAO = new ConfigDAO(getBaseContext());							
+				String login = configDAO.verificaLogin(etUsuario.getText().toString(), etSenha.getText().toString());
+				Log.d("login", login);
+				if (login=="1"){
+					startActivity(new Intent(Login.this,Principal.class));					
+				} else {
+					if (etUsuario.getText().toString().equals(usuario) && etSenha.getText().toString().equals(senha)){
+						startActivity(new Intent(Login.this,Principal.class));
+					}else{
+						mensagemExibir("Login", "Dados não conferem, favor digitar novamente!");
+					}
+				}
+/*								
 				if (etUsuario.getText().toString().equals(usuario) && etSenha.getText().toString().equals(senha)){
 					startActivity(new Intent(Login.this,Principal.class));
 				}else{
 					mensagemExibir("Login", "Dados não conferem, favor digitar novamente!");
 				}
-					
+*/					
 /*				
 				Log.i("logar", "1");
 				String urlPost="http://192.168.1.3:8080/AndroidWeb/logar.jsp";

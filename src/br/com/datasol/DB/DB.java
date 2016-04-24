@@ -32,7 +32,7 @@ public class DB extends SQLiteOpenHelper{
     private static String sqlVendedor = "CREATE TABLE IF NOT EXISTS VENDEDOR (cod integer primary key autoincrement,"
   	      + " nome varchar(90));";
 		  
-    private static String sqlConfig = "CREATE TABLE IF NOT EXISTS CONFIG (cod integer primary key autoincrement,"
+    private static String sqlConfig = "CREATE TABLE IF NOT EXISTS CONFIG (id integer primary key autoincrement,"
     	      + " url varchar(90), usuario varchar(50), senha varchar(90));";
 	
 	String[] statements = new String[]{sqlCliente, sqlEstoque, sqlRec, sqlProdvend, sqlVendedor, sqlConfig};
