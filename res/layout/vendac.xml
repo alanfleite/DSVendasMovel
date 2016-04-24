@@ -1,0 +1,257 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.datasol.app.Principal"
+    tools:ignore="MergeRootFrame" >
+
+    <AbsoluteLayout
+        android:layout_width="398dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.53"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btNovoVendaC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/atualizar"
+                android:text="Novo"
+                android:textColor="#333333" />
+
+            <Button
+                android:id="@+id/btSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/salvar"
+                android:text="Salvar"
+                android:textColor="#333333" />
+
+            <Button
+                android:id="@+id/btAlterar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/atualizar"
+                android:text="Alterar"
+                android:textColor="#333333" />
+
+            <Button
+                android:id="@+id/btApagar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/apagar"
+                android:text="Apagar"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="329dp"
+            android:layout_x="10dp"
+            android:layout_y="65dp"
+            android:orientation="vertical" >
+
+            <AbsoluteLayout
+                android:layout_width="match_parent"
+                android:layout_height="378dp"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/txtCod"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-20dp"
+                    android:layout_x="15dp"
+                    android:layout_y="13dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvCod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_x="19dp"
+                    android:layout_y="4dp"
+                    android:text="Código" />
+
+                <TextView
+                    android:id="@+id/txvData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="138dp"
+                    android:layout_y="4dp"
+                    android:text="Data" />
+
+                <EditText
+                    android:id="@+id/txtData"
+                    android:layout_width="129dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="132dp"
+                    android:layout_y="12dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvTotalGeral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="268dp"
+                    android:layout_y="4dp"
+                    android:text="Total Geral" />
+
+                <EditText
+                    android:id="@+id/txtTotalVendaC"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_x="267dp"
+                    android:layout_y="12dp"
+                    android:ems="10" />
+
+                <EditText
+                    android:id="@+id/txtFantasia"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="17dp"
+                    android:layout_y="65dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvRazao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_x="19dp"
+                    android:layout_y="102dp"
+                    android:text="Razão" />
+
+                <EditText
+                    android:id="@+id/txtRazao"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="15dp"
+                    android:layout_y="112dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvFantasia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_x="17dp"
+                    android:layout_y="52dp"
+                    android:text="Nome/Fantasia" />
+
+                <TextView
+                    android:id="@+id/txvCnpj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_x="28dp"
+                    android:layout_y="168dp"
+                    android:text="CNPJ" />
+
+                <EditText
+                    android:id="@+id/txtCnpj"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="21dp"
+                    android:layout_y="179dp"
+                    android:ems="10" />
+
+                <EditText
+                    android:id="@+id/txtCidade"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="19dp"
+                    android:layout_y="227dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvCidade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_x="19dp"
+                    android:layout_y="217dp"
+                    android:text="Cidade" />
+
+                <EditText
+                    android:id="@+id/txtCondPgto"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="21dp"
+                    android:layout_y="273dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvCondPgto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_x="23dp"
+                    android:layout_y="261dp"
+                    android:text="Cond. Pgto" />
+            </AbsoluteLayout>
+
+        </LinearLayout>
+    </AbsoluteLayout>
+
+    <AbsoluteLayout
+        android:layout_width="383dp"
+        android:layout_height="match_parent"
+        android:layout_x="400dp"
+        android:layout_y="1dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btVoltarCad"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="240dp"
+                android:layout_marginRight="116dp"
+                android:drawableLeft="@drawable/fechar"
+                android:text="Fechar" />
+
+            <EditText
+                android:id="@+id/etProcurar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Procurar" >
+
+                <requestFocus />
+            </EditText>
+
+            <ListView
+                android:id="@+id/ltvDados"
+                android:layout_width="match_parent"
+                android:layout_height="322dp"
+                android:layout_alignParentTop="true" >
+            </ListView>
+        </LinearLayout>
+    </AbsoluteLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="770dp"
+        android:layout_y="-95dp"
+        android:text="Button" />
+
+</AbsoluteLayout>

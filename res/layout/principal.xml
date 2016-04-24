@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/ImageButton01"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonok"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/buttonok"
+        android:src="@drawable/venda"
+        android:text="OK" />
+
+    <ImageButton
+        android:id="@+id/ImageButton02"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView01"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/ImageButton01"
+        android:src="@drawable/prod"
+        android:text="OK" />
+
+    <ImageButton
+        android:id="@+id/ImageButton05"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView04"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/ImageButton04"
+        android:src="@drawable/savserv"
+        android:text="OK" />
+
+    <ImageButton
+        android:id="@+id/ImageButton03"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView02"
+        android:layout_marginLeft="7dp"
+        android:layout_toRightOf="@+id/ImageButton02"
+        android:src="@drawable/atcliente"
+        android:text="OK" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ImageButton03"
+        android:layout_below="@+id/ImageButton03"
+        android:text="Atualizar Cliente" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ImageButton02"
+        android:layout_below="@+id/ImageButton02"
+        android:layout_marginRight="26dp"
+        android:text="Produtos" />
+
+    <ImageButton
+        android:id="@+id/ImageButton04"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView03"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ImageButton03"
+        android:src="@drawable/atest"
+        android:text="OK" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView03"
+        android:layout_alignBottom="@+id/TextView03"
+        android:layout_alignLeft="@+id/ImageButton04"
+        android:layout_marginLeft="17dp"
+        android:text="At. Estoque" />
+
+    <ImageButton
+        android:id="@+id/ImageButton06"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView05"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/ImageButton05"
+        android:src="@drawable/vendasper"
+        android:visibility="invisible"
+        android:text="OK" />
+
+    <TextView
+        android:id="@+id/TextView06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView05"
+        android:layout_alignBottom="@+id/TextView05"
+        android:layout_alignRight="@+id/ImageButton06"
+        android:layout_marginRight="15dp"
+        android:visibility="invisible"
+        android:text="Venda Per." />
+
+    <TextView
+        android:id="@+id/txvVlTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignRight="@+id/buttonok"
+        android:layout_marginRight="20dp"
+        android:text="Auxiliares" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView04"
+        android:layout_alignBottom="@+id/TextView04"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/TextView04"
+        android:text="Salvar no servidor" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ImageButton01"
+        android:layout_below="@+id/ImageButton01"
+        android:layout_marginLeft="35dp"
+        android:text="Vendas" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ImageButton04"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-80dp"
+        android:src="@drawable/bloc" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/TextView03"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginBottom="-25dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/logodata" />
+
+    <ImageButton
+        android:id="@+id/ImageButton07"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/TextView06"
+        android:layout_marginRight="85dp"
+        android:src="@drawable/iconsair"
+        android:text="OK" />
+
+    <ImageButton
+        android:id="@+id/buttonok"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="94dp"
+        android:src="@drawable/auxiliar" />
+
+    <TextView
+        android:id="@+id/txvVersao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView04"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="18dp"
+        android:text="10.0.36" />
+
+    <TextView
+        android:id="@+id/txtAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvVersao"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/ImageButton03"
+        android:text="2016" />
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.datasol.app.Principal"
+    tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:id="@+id/linearData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txvVendedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vendedor" />
+
+        <EditText
+            android:id="@+id/txtVendedor"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/txvDataI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D. Ini." />
+
+        <EditText
+            android:id="@+id/txtDataI"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/txvDataF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D. Fim" />
+
+        <EditText
+            android:id="@+id/txtDataF"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btVerificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/pesquisa"
+            android:text="Verificar" />
+
+        <Button
+            android:id="@+id/btFechar"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/fechar"
+            android:text="Fechar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ListView
+            android:id="@+id/ltvDados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

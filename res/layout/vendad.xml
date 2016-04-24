@@ -1,0 +1,157 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.datasol.app.Principal"
+    tools:ignore="MergeRootFrame" >
+
+    <AbsoluteLayout
+        android:layout_width="398dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.53"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        <EditText  
+            android:hint="Procurar"  
+            android:id="@+id/etProcurar"  
+            android:layout_height="wrap_content"  
+            android:layout_width="fill_parent">  
+        </EditText>             
+
+            <ListView
+                android:id="@+id/ltvDados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" >
+            </ListView>
+        </LinearLayout>
+
+    </AbsoluteLayout>
+
+    <AbsoluteLayout
+        android:layout_width="383dp"
+        android:layout_height="match_parent"
+        android:layout_x="400dp"
+        android:layout_y="1dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/listProdutos"
+            android:layout_width="384dp"
+            android:layout_height="227dp"
+            android:layout_x="-1dp"
+            android:layout_y="135dp" >
+        </ListView>
+
+        <TextView
+            android:id="@+id/txvProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="30dp"
+            android:layout_y="30dp"
+            android:text="Produto" />
+<!-- 
+        <ImageButton
+            android:id="@+id/imbBuscarProduto1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="27dp"
+            android:layout_y="86dp"
+            android:src="@drawable/pesquisa" />
+ -->
+        <EditText
+            android:id="@+id/txtVU"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_x="264dp"
+            android:layout_y="95dp"
+            android:ems="10" />      
+        
+        <Button
+            android:id="@+id/btVoltarCad"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="116dp"
+            android:layout_marginTop="-17dp"
+            android:layout_x="274dp"
+            android:layout_y="0dp"
+            android:drawableLeft="@drawable/fechar"
+            android:text="Fechar" />
+
+        <TextView
+            android:id="@+id/txvQt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="192dp"
+            android:layout_y="93dp"
+            android:text="Qt" />
+
+        <EditText
+            android:id="@+id/txtQt"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_x="194dp"
+            android:layout_y="97dp"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/txvVU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="101dp"
+            android:layout_x="269dp"
+            android:layout_y="91dp"
+            android:text="V. Unit." />
+
+        <TextView
+            android:id="@+id/txvVlTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="96dp"
+            android:layout_y="32dp"
+            android:text="Total Geral:" />
+
+        <EditText
+            android:id="@+id/txtProduto"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_x="13dp"
+            android:layout_y="39dp"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/imbAdicionarProduto1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="73dp"
+            android:layout_y="97dp"
+            android:src="@drawable/adicionar" />
+
+    </AbsoluteLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="770dp"
+        android:layout_y="-95dp"
+        android:text="Button" />
+
+</AbsoluteLayout>

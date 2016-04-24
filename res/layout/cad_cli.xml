@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.datasol.app.Principal"
+    tools:ignore="MergeRootFrame" >
+
+    <AbsoluteLayout
+        android:layout_width="410dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.53"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="403dp"
+            android:layout_height="477dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txvFantasia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Nome/Fantasia" />
+
+            <EditText
+                android:id="@+id/txtFantasia"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvRazao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Razão" />
+
+            <EditText
+                android:id="@+id/txtRazao"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvEnde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Endereço" />
+
+            <EditText
+                android:id="@+id/txtEnde"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvEnde_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="-58dp"
+                android:text="Número" />
+
+            <EditText
+                android:id="@+id/txtEnde_num"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="290dp"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvFone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Telefone" />
+
+            <EditText
+                android:id="@+id/txtFone"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvCel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="-59dp"
+                android:text="Celular" />
+
+            <EditText
+                android:id="@+id/txtCel"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="202dp"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvBairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Bairro" />
+
+            <EditText
+                android:id="@+id/txtBairro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvCidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cidade" />
+
+            <EditText
+                android:id="@+id/txtCidade"
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvUf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="360dp"
+                android:layout_marginTop="-59dp"
+                android:text="UF" />
+
+            <EditText
+                android:id="@+id/txvUf"
+                android:layout_width="41dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
+                android:ems="10" />
+        </LinearLayout>
+
+    </AbsoluteLayout>
+
+    <AbsoluteLayout
+        android:layout_width="518dp"
+        android:layout_height="509dp"
+        android:layout_x="415dp"
+        android:layout_y="1dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txvCnpj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="CNPJ" />
+
+            <EditText
+                android:id="@+id/txtCnpj"
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvInscEst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inscrição Est." />
+
+            <EditText
+                android:id="@+id/txtInscEst"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvResp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Responsável" />
+
+            <EditText
+                android:id="@+id/txtResp"
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-Mail" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="205dp"
+                android:layout_marginTop="-59dp"
+                android:text="Contato" />
+
+            <EditText
+                android:id="@+id/txtContato"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="190dp"
+                android:ems="10" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/txvCPF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPF" />
+
+            <EditText
+                android:id="@+id/txtRg"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/txvRg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="205dp"
+                android:layout_marginTop="-59dp"
+                android:text="RG" />
+
+            <EditText
+                android:id="@+id/txtCPF"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:ems="10" >
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/btSalvar"
+                    android:layout_width="113dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:drawableLeft="@drawable/salvar"
+                    android:text="Salvar" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </AbsoluteLayout>
+
+</AbsoluteLayout>
