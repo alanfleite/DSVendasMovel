@@ -3,10 +3,12 @@ package br.com.datasol;
 import br.com.datasol.DB.DB;
 import br.com.datasol.conexaoweb.ConexaoHTTPClient;
 import br.com.datasol.dao.Cad_cliDAO;
+import br.com.datasol.dao.ConfigDAO;
 import br.com.datasol.dao.EstoqueDAO;
 import br.com.datasol.dao.VendedorDAO;
 import br.com.datasol.R;
 import br.com.datasol.vo.Cad_cliVO;
+import br.com.datasol.vo.ConfigVO;
 import br.com.datasol.vo.EstoqueVO;
 import br.com.datasol.vo.VendedorVO;
 import android.annotation.SuppressLint;
@@ -68,16 +70,22 @@ public class ReplicarClientesIn extends Activity{
 	        VendedorDAO vdao = new VendedorDAO(getBaseContext());
 	        String vendedor = vdao.getVendedor();
 	        
+	        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+	        ConfigVO configVO = new ConfigVO();
+	        String url = configVO.getUrl(); 
+	        Log.d("url", url);
 	        setContentView(R.layout.listarreplicacaocad_cli);
 	        //Log.d("RepCli", "1");
 	        //db.delete("cad_cli", null,null);
 	        //Log.d("RepCli", "2");
 	        //String url="http://datasol1.no-ip.biz:8080/AndroidWeb/ListarClientes.jsp";
-	        String url;
+//	        String url;
 	        if (vendedor.equals("WASHINGTON")){
-	        	url="http://192.168.1.12:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;	        	
+	        	url= url + "/ListarClientes.jsp?vendedor=" + vendedor;
+	        	//url="http://192.168.1.12:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;	        	
 	        } else{
-	        	url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;
+	        	url= url + "/ListarClientes.jsp?vendedor=" + vendedor;
+	        	//url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;
 	        	//url="http://10.1.1.7:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;
 	        }
 			

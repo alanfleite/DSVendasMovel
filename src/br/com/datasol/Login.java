@@ -42,7 +42,7 @@ public class Login extends Activity {
 			public void onClick(View v) {
 				ConfigDAO configDAO = new ConfigDAO(getBaseContext());							
 				String login = configDAO.verificaLogin(etUsuario.getText().toString(), etSenha.getText().toString());
-				Log.d("login", login);
+				//Log.d("login", login);
 				if (login=="1"){
 					startActivity(new Intent(Login.this,Principal.class));					
 				} else {
