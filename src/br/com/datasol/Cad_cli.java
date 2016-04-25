@@ -5,6 +5,7 @@ import br.com.datasol.R;
 import br.com.datasol.vo.Cad_cliVO;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,7 +70,9 @@ public class Cad_cli extends Activity{
 				vo.setCel(txtCel.getText().toString());
 				vo.setBairro(txtBairro.getText().toString());
 				vo.setCidade(txtCidade.getText().toString());
+				//Log.d("salvar cliente0", vo.getUsuario());				
 				vo.setUf(txtUf.getText().toString());
+				//Log.d("salvar cliente1", vo.getUsuario());								
 				vo.setCnpj(txtCnpj.getText().toString());
 				vo.setRg(txtRg.getText().toString());
 				vo.setInscest(txtInscest.getText().toString());
@@ -77,6 +80,8 @@ public class Cad_cli extends Activity{
 				vo.setEmail(txtEmail.getText().toString());
 				vo.setContato(txtContato.getText().toString());
 				vo.setCpf(txtCpf.getText().toString());
+				
+				Log.d("salvar cliente", vo.getUsuario());
 				
 				Cad_cliDAO dao = new Cad_cliDAO(getBaseContext());
 				if (dao.insert(vo)) {

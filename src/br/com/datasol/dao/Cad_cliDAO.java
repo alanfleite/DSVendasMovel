@@ -47,7 +47,9 @@ public class Cad_cliDAO {
 		ctv.put("cpf", vo.getCpf());
 		// ctv.put("parcelaatrazo", vo.getParcelaatrazo());
 		// ctv.put("infoparcelaatrazo", vo.getInfoparcelaatrazo());
-
+		
+		Log.d("salvar clienteDAO", vo.getUsuario());
+		
 		return (db.insert(table_name, null, ctv) > 0);
 	}
 
