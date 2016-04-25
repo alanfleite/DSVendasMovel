@@ -2,9 +2,11 @@ package br.com.datasol;
 
 
 import br.com.datasol.conexaoweb.ConexaoHTTPClient;
+import br.com.datasol.dao.ConfigDAO;
 import br.com.datasol.dao.EstoqueDAO;
 import br.com.datasol.dao.VendedorDAO;
 import br.com.datasol.R;
+import br.com.datasol.vo.ConfigVO;
 import br.com.datasol.vo.EstoqueVO;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -45,7 +47,6 @@ public class ReplicarEstoqueIn extends Activity{
 	        super.onCreate(savedInstanceState);
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 	        StrictMode.setThreadPolicy(policy);
-	        
 			        
 	        etQt = (EditText) findViewById(R.id.txtQt);
 	        
@@ -55,14 +56,19 @@ public class ReplicarEstoqueIn extends Activity{
 	        VendedorDAO vdao = new VendedorDAO(getBaseContext());
 	        String vendedor = vdao.getVendedor();
 	        
+	        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+	        ConfigVO configVO = configDAO.getById(1);
+	        String url = configVO.getUrl();	        
+	        
 	        setContentView(R.layout.listarreplicacaoestoque);
 	        
-	        
-	        String url;
+//	        String url;
 	        if (vendedor.equals("WASHINGTON")){
-	        	url="http://192.168.1.12:8080/AndroidWeb/ListarEstoque.jsp";
+	        	url= url + "/ListarEstoque.jsp";
+	        	//url="http://192.168.1.12:8080/AndroidWeb/ListarEstoque.jsp";
 	        } else{
-	        	url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarEstoque.jsp";
+	        	url= url + "/ListarEstoque.jsp";
+	        	//url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarEstoque.jsp";
 				//String url="http://192.168.1.3:8080/AndroidWeb/ListarEstoque.jsp";	        	
 	        }
 	        	

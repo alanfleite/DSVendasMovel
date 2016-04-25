@@ -8,9 +8,11 @@ import org.apache.http.message.BasicNameValuePair;
 import br.com.datasol.DB.DB;
 import br.com.datasol.auxilio.FormatarCampos;
 import br.com.datasol.conexaoweb.ConexaoHTTPClient;
+import br.com.datasol.dao.ConfigDAO;
 import br.com.datasol.dao.ProdVendDAO;
 import br.com.datasol.dao.RecDAO;
 import br.com.datasol.dao.VendedorDAO;
+import br.com.datasol.vo.ConfigVO;
 import br.com.datasol.vo.RecVO;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -71,14 +73,22 @@ public class ReplicarVendasOff1 extends ListActivity {
 		
 		VendedorDAO vdao = new VendedorDAO(getBaseContext());
         String vendedor = vdao.getVendedor();
-        String url;
+        
+        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+        ConfigVO configVO = configDAO.getById(1);
+        String url = configVO.getUrl(); 
+        //Log.d("url", url);
+        
+        //String url;
 		while(rec.moveToNext()){
 			//Log.i("Replicação das Vendas", "1");
 			
 	        if (vendedor.equals("WASHINGTON")){
-	        	url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaCIn.jsp";
+	        	url= url + "/ReplicarVendaCIn.jsp";
+	        	//url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaCIn.jsp";
 	        } else {
-	        	url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaCIn.jsp";
+	        	url= url + "/ReplicarVendaCIn.jsp";
+	        	//url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaCIn.jsp";
 				//url = "http://10.1.1.5:8080/AndroidWeb/ReplicarVendaCIn.jsp";
 	        }
 			

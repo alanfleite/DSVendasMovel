@@ -71,9 +71,10 @@ public class ReplicarClientesIn extends Activity{
 	        String vendedor = vdao.getVendedor();
 	        
 	        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
-	        ConfigVO configVO = new ConfigVO();
+	        ConfigVO configVO = configDAO.getById(1);
 	        String url = configVO.getUrl(); 
-	        Log.d("url", url);
+	        //Log.d("url", url);
+	        
 	        setContentView(R.layout.listarreplicacaocad_cli);
 	        //Log.d("RepCli", "1");
 	        //db.delete("cad_cli", null,null);
