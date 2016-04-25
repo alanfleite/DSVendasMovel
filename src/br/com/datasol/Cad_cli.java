@@ -58,6 +58,7 @@ public class Cad_cli extends Activity{
 			@Override
 			public void onClick(View v) {
 
+				
 				Cad_cliVO vo = new Cad_cliVO();
 				
 				vo.setUsuario(txtUsuario.getText().toString());
