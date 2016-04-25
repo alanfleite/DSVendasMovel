@@ -32,6 +32,7 @@
         <activity android:name="ListarClientes"></activity>
         <activity android:name="ListarEstoque"></activity>
         <activity android:name="ListarEstoque1"></activity>
+        <activity android:name="ListarVendas"></activity>
         <activity android:name="MenuPrincipal"></activity>
         <activity android:name="Principal"></activity>
         <activity android:name="Produtos"></activity>

@@ -71,13 +71,6 @@ public class ReplicarEstoqueIn extends Activity{
 	        	//url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarEstoque.jsp";
 				//String url="http://192.168.1.3:8080/AndroidWeb/ListarEstoque.jsp";	        	
 	        }
-	        	
-	        //Log.d("Estoq ", "1");
-	        //db.execSQL("DELETE FROM estoq");
-	        //db.delete("estoq", null,null);
-	        //Log.d("Estoq ", "2");
-	        //String url="http://datasol1.no-ip.biz:8080/AndroidWeb/ListarEstoque.jsp";
-			//String url="http://192.168.1.3:8080/AndroidWeb/ListarEstoque.jsp";
 			
 			String respostaRetornada = null;
 		

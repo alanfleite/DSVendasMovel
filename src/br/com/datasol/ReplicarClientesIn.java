@@ -73,17 +73,12 @@ public class ReplicarClientesIn extends Activity{
 	        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
 	        ConfigVO configVO = configDAO.getById(1);
 	        String url = configVO.getUrl(); 
-	        //Log.d("url", url);
 	        
 	        setContentView(R.layout.listarreplicacaocad_cli);
-	        //Log.d("RepCli", "1");
-	        //db.delete("cad_cli", null,null);
-	        //Log.d("RepCli", "2");
-	        //String url="http://datasol1.no-ip.biz:8080/AndroidWeb/ListarClientes.jsp";
-//	        String url;
+	        
 	        if (vendedor.equals("WASHINGTON")){
 	        	url= url + "/ListarClientes.jsp?vendedor=" + vendedor;
-	        	//url="http://192.168.1.12:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;	        	
+	        	//url="http://192.168.1.12:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;
 	        } else{
 	        	url= url + "/ListarClientes.jsp?vendedor=" + vendedor;
 	        	//url="http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ListarClientes.jsp?vendedor=" + vendedor;

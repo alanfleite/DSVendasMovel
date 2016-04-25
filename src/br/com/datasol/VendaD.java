@@ -89,6 +89,10 @@ public class VendaD extends Activity {
 	private static int buscarProduto = 0;
 	private String codProdutoStr;
 	private String codUnid;
+	public Double vlProduto;
+	public Double vlProdutoDig;
+	public Double desconto;
+	public Double porcDesconto;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -113,7 +117,7 @@ public class VendaD extends Activity {
 		txvVlTotalG = (TextView)findViewById(R.id.txvVlTotal);
 		
 		etProcurar = (EditText) findViewById(R.id.etProcurar);
-
+		
 		//registerForContextMenu(ltwEstoq);	
 		
 		buscarUltimaVenda();
@@ -188,10 +192,11 @@ public class VendaD extends Activity {
     			//txtProduto = (EditText) findViewById(R.id.txtProduto);
     			//txtQt = (EditText) findViewById(R.id.txtQt);
     			//txtVu = (EditText) findViewById(R.id.txtVU);
-    			
+    			vlProduto = null;
     			txtProduto.setText(vo.getProd());
     			txtVu.setText(vo.getVt());
     			txtQt.setText("");
+    			vlProduto = Double.parseDouble(vo.getVt());
             }  
         });  
         
@@ -218,7 +223,21 @@ public class VendaD extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				salvarVendaD();
+				vlProdutoDig = null;
+				vlProdutoDig = Double.parseDouble(txtVu.getText().toString());
+				//Log.d("valores", "vlProduto " + vlProduto + " - vlProdutoDig " + vlProdutoDig);
+				if(vlProduto.equals(vlProdutoDig)){
+					salvarVendaD();	
+				}else if(vlProduto > vlProdutoDig){
+			      desconto = (vlProdutoDig / vlProduto) * 100;
+		          porcDesconto = 100 - desconto;
+		          
+		          if (porcDesconto <= 5){
+		        	  salvarVendaD();  
+		          }else{
+		        	  Mensagem("Desconto não pode ultrapassar 5%!");
+		          }					
+				}
 			}
 		});				
 	}

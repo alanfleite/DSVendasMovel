@@ -47,6 +47,8 @@ public class ReplicarVendasOff1 extends ListActivity {
 	private ProgressDialog pg;
 	private SQLiteDatabase db;
 	FormatarCampos fc = new FormatarCampos();
+	//public String url;
+	//public String vendedor;
 	
 	
 //	Button btVoltar;
@@ -76,21 +78,22 @@ public class ReplicarVendasOff1 extends ListActivity {
         
         ConfigDAO configDAO = new ConfigDAO(getBaseContext());
         ConfigVO configVO = configDAO.getById(1);
-        String url = configVO.getUrl(); 
-        //Log.d("url", url);
+        String url = configVO.getUrl();
+
+        if (vendedor.equals("WASHINGTON")){
+        	url= url + "/ReplicarVendaCIn.jsp";
+        	//url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaCIn.jsp";
+        } else {
+        	url= url + "/ReplicarVendaCIn.jsp";
+        	//url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaCIn.jsp";
+			//url = "http://10.1.1.5:8080/AndroidWeb/ReplicarVendaCIn.jsp";
+        }
         
+        //Log.d("url vendaC", url);
+		
         //String url;
 		while(rec.moveToNext()){
 			//Log.i("Replicação das Vendas", "1");
-			
-	        if (vendedor.equals("WASHINGTON")){
-	        	url= url + "/ReplicarVendaCIn.jsp";
-	        	//url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaCIn.jsp";
-	        } else {
-	        	url= url + "/ReplicarVendaCIn.jsp";
-	        	//url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaCIn.jsp";
-				//url = "http://10.1.1.5:8080/AndroidWeb/ReplicarVendaCIn.jsp";
-	        }
 			
 /*	        
 	        Log.i("Replicação das Vendas", "2 "  
@@ -135,19 +138,26 @@ public class ReplicarVendasOff1 extends ListActivity {
 	public void iniciarReplicacaoVendaD(){
 		prodvend = db.rawQuery("SELECT prod, q1, vl_u, vl_t, codvend, vendedor FROM prod_vend", null);		
 		String respostaRetornada = null;
-		
 		VendedorDAO vdao = new VendedorDAO(getBaseContext());
         String vendedor = vdao.getVendedor();
         
-        String url;
+        ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+        ConfigVO configVO = configDAO.getById(1);
+	    String url = configVO.getUrl();
+        //String url;
         
+		if (vendedor.equals("WASHINGTON")){
+			url= url + "/ReplicarVendaDIn.jsp";
+			//url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaDIn.jsp";
+		} else {
+			url= url + "/ReplicarVendaDIn.jsp";
+			//url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaDIn.jsp";
+			//url = "http://10.1.1.5:8080/AndroidWeb/ReplicarVendaDIn.jsp";				
+		}
+		
+		//Log.d("url vendaD", url);
+		
 		while(prodvend.moveToNext()){
-			if (vendedor.equals("WASHINGTON")){
-				url = "http://192.168.1.12:8080/AndroidWeb/ReplicarVendaDIn.jsp";
-			} else {
-				url = "http://rpsutilidades.no-ip.biz:8080/AndroidWeb/ReplicarVendaDIn.jsp";
-				//url = "http://10.1.1.5:8080/AndroidWeb/ReplicarVendaDIn.jsp";				
-			}
 			
 			ArrayList<NameValuePair> paramentosPost = new ArrayList<NameValuePair>();
 			paramentosPost.add(new BasicNameValuePair("prod", prodvend.getString(prodvend.getColumnIndex("prod"))));
