@@ -14,7 +14,7 @@ public class MenuPrincipal extends ListActivity{
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        
-	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastro de Clientes", "Listar Clientes", "Clientes em Atrazo", "Cadastro do Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet)", "Fechar"};
+	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastrar Clientes", "Listar Clientes", "Clientes UP", "Clientes em Atrazo", "Cadastrar Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet)", "Fechar"};
 	        ArrayAdapter<String> aaMenu = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
 	        setListAdapter(aaMenu);
         	
@@ -39,22 +39,25 @@ public class MenuPrincipal extends ListActivity{
 			 break;
 		 case 3:
 			 startActivity(new Intent(this,Cad_cliListar.class)); 
-			 break;			 
+			 break;
 		 case 4:
+			 startActivity(new Intent(this,ReplicarClientesOff.class)); 
+			 break;			 			 
+		 case 5:
 			 startActivity(new Intent(this,Cad_cliListarAtrazo.class)); 
 			 break;			 
-		 case 5:
+		 case 6:
 			 startActivity(new Intent(this,Vendedor.class)); 
 			 break;		 
-		 case 6:
-			 startActivity(new Intent(this,VendedorListar.class)); break;
 		 case 7:
-			 startActivity(new Intent(this,ListarEstoque.class)); break;			 
+			 startActivity(new Intent(this,VendedorListar.class)); break;
 		 case 8:
-			 startActivity(new Intent(this,VendasPer.class)); break;
+			 startActivity(new Intent(this,ListarEstoque.class)); break;			 
 		 case 9:
-			 startActivity(new Intent(this,ListarVendas.class)); break;
+			 startActivity(new Intent(this,VendasPer.class)); break;
 		 case 10:
+			 startActivity(new Intent(this,ListarVendas.class)); break;
+		 case 11:
 			 finish(); break;
 			 
 		default: finish();

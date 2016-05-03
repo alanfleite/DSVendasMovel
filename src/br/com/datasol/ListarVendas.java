@@ -2,8 +2,6 @@ package br.com.datasol;
 
 import java.util.ArrayList;
 import java.util.List;
-import br.com.datasol.adapters.ProdVendAdapter;
-import br.com.datasol.adapters.RecAdapter;
 import br.com.datasol.auxilio.FormatarCampos;
 import br.com.datasol.dao.EstoqueDAO;
 import br.com.datasol.dao.ProdVendDAO;

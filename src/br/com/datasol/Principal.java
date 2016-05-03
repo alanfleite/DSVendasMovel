@@ -14,27 +14,23 @@ public class Principal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.principal);
 		
-		ImageButton imbAuxiliar = (ImageButton)findViewById(R.id.buttonok);
-		ImageButton imbVenda = (ImageButton)findViewById(R.id.ImageButton01);
-		//ImageButton imbListar = (ImageButton)findViewById(R.id.ImageButton01);
-		ImageButton imbProdutos = (ImageButton)findViewById(R.id.ImageButton02);
-		ImageButton imbAtClientes = (ImageButton)findViewById(R.id.ImageButton03);
-		ImageButton imbAtEst = (ImageButton)findViewById(R.id.ImageButton04);
-		ImageButton imbSavServ = (ImageButton)findViewById(R.id.ImageButton05);
-		//ImageButton imbProdutos = (ImageButton)findViewById(R.id.ImageButton06);
-		ImageButton imbVendasPer = (ImageButton)findViewById(R.id.ImageButton06);
-		ImageButton imbSair = (ImageButton)findViewById(R.id.ImageButton07);
+		ImageButton ibtAuxiliar = (ImageButton)findViewById(R.id.ibtAuxiliar);
+		ImageButton ibtClientesDow = (ImageButton)findViewById(R.id.ibtClienteDow);
+		ImageButton ibtProdutosDow = (ImageButton)findViewById(R.id.ibtProdutosDow);
+		ImageButton ibtVendaC = (ImageButton)findViewById(R.id.ibtVendaC);
+		ImageButton ibtVendaD = (ImageButton)findViewById(R.id.ibtVendaD);
+		ImageButton ibtVendasUp = (ImageButton)findViewById(R.id.ibtVendasUP);
+		ImageButton ibtSair = (ImageButton)findViewById(R.id.ibtSair);
 		
-		imbAuxiliar.setOnClickListener(new View.OnClickListener() {
+		ibtAuxiliar.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				//startActivity(new Intent(getBaseContext(), Cad_cli.class)); 	
 				startActivity(new Intent(getBaseContext(), MenuPrincipal.class));
 			}
 		});
 		
-		imbVenda.setOnClickListener(new View.OnClickListener() {
+		ibtVendaC.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -42,9 +38,8 @@ public class Principal extends Activity {
 				
 			}
 		});
-		
 
-		imbProdutos.setOnClickListener(new View.OnClickListener() {
+		ibtVendaD.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -52,7 +47,7 @@ public class Principal extends Activity {
 			}
 		});		
 		
-		imbAtClientes.setOnClickListener(new View.OnClickListener() {
+		ibtClientesDow.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -61,7 +56,7 @@ public class Principal extends Activity {
 			}
 		});
 		
-		imbAtEst.setOnClickListener(new View.OnClickListener() {
+		ibtProdutosDow.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -70,7 +65,7 @@ public class Principal extends Activity {
 			}
 		});
 		
-		imbSavServ.setOnClickListener(new View.OnClickListener() {
+		ibtVendasUp.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -78,17 +73,8 @@ public class Principal extends Activity {
 				
 			}
 		});
-		
-	imbVendasPer.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(),VendasPer.class));
-			}
-		});	
-		
 				
-		imbSair.setOnClickListener(new View.OnClickListener() {
+		ibtSair.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -96,9 +82,5 @@ public class Principal extends Activity {
 				
 			}
 		});
-		
-		
-		
-		
 	}
 }

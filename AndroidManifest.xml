@@ -39,8 +39,8 @@
         <activity android:name="Produtos1"></activity>
         <activity android:name="ProdutosListar"></activity>        
         <activity android:name="ReplicarClientesIn"></activity>
+        <activity android:name="ReplicarClientesOff"></activity>
         <activity android:name="ReplicarEstoqueIn"></activity>
-        <activity android:name="ReplicarVendasOff"></activity>
         <activity android:name="ReplicarVendasOff1"></activity>
         <activity android:name="Teste"></activity>
         <activity android:name="Venda"></activity>
