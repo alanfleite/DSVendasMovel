@@ -49,11 +49,11 @@ public class Cad_cli extends Activity{
 		txtCnpj = (EditText) findViewById(R.id.txtCnpj);
 		txtRg = (EditText) findViewById(R.id.txtRg);
 		txtInscest = (EditText) findViewById(R.id.txtInscEst);
-		txtResp = (EditText) findViewById(R.id.txtResp);
+		//txtResp = (EditText) findViewById(R.id.txtResp); //03.05.2016 - colocado para armazenar informacao de cliente novo
 		txtEmail = (EditText) findViewById(R.id.txtEmail);
 		txtContato = (EditText) findViewById(R.id.txtContato);
 		txtCpf = (EditText) findViewById(R.id.txtCPF);
-
+		
 		btnSalvar.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -76,7 +76,8 @@ public class Cad_cli extends Activity{
 				vo.setCnpj(txtCnpj.getText().toString());
 				vo.setRg(txtRg.getText().toString());
 				vo.setInscest(txtInscest.getText().toString());
-				vo.setResp(txtResp.getText().toString());
+				//vo.setResp(txtResp.getText().toString());
+				vo.setResp("Sim");
 				vo.setEmail(txtEmail.getText().toString());
 				vo.setContato(txtContato.getText().toString());
 				vo.setCpf(txtCpf.getText().toString());

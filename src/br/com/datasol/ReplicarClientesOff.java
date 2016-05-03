@@ -1,8 +1,10 @@
 package br.com.datasol;
 
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+
 import br.com.datasol.auxilio.FormatarCampos;
 import br.com.datasol.conexaoweb.ConexaoHTTPClient;
 import br.com.datasol.dao.ConfigDAO;
@@ -15,6 +17,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 
 public class ReplicarClientesOff extends ListActivity {
 //	EditText etUsuario;
@@ -40,8 +43,12 @@ public class ReplicarClientesOff extends ListActivity {
 	}
 
 	public void replicacaoCliente(){
-		cCliente = db.rawQuery("SELECT USUARIO, RAZAO, ENDE, ENDE_NUM, FONE, CEL, BAIRRO, CIDADE, UF, CNPJ, RG, INSCEST,"
-				+ " RESP, EMAIL, CONTATO, CPF FROM CAD_CLI", null);		
+		String sql = "SELECT USUARIO, RAZAO, ENDE, ENDE_NUM, FONE, CEL, BAIRRO, CIDADE, UF, CNPJ, RG, INSCEST,"
+				+ " RESP, EMAIL, CONTATO, CPF FROM CAD_CLI where RESP = \"Sim\"";
+		cCliente = db.rawQuery(sql, null);
+		
+		//Log.i("Replicação das Clientes", sql);
+		
 		String respostaRetornada = null;
 
         ConfigDAO configDAO = new ConfigDAO(getBaseContext());
@@ -49,10 +56,10 @@ public class ReplicarClientesOff extends ListActivity {
 	    String url = configVO.getUrl();
 		
 		while(cCliente.moveToNext()){
-			//Log.i("Replicação das Vendas", "1");
+			//Log.i("Replicação das Clientes", "1");
 			
 	        url= url + "/ReplicarClienteIn.jsp";
-	        	
+
 			ArrayList<NameValuePair> paramentosPost = new ArrayList<NameValuePair>();
 			paramentosPost.add(new BasicNameValuePair("usuario", cCliente.getString(cCliente.getColumnIndex("usuario"))));
 			paramentosPost.add(new BasicNameValuePair("razao", cCliente.getString(cCliente.getColumnIndex("razao"))));
@@ -62,16 +69,16 @@ public class ReplicarClientesOff extends ListActivity {
 			paramentosPost.add(new BasicNameValuePair("cel", cCliente.getString(cCliente.getColumnIndex("cel"))));
 			paramentosPost.add(new BasicNameValuePair("bairro", cCliente.getString(cCliente.getColumnIndex("bairro"))));
 			paramentosPost.add(new BasicNameValuePair("cidade", cCliente.getString(cCliente.getColumnIndex("cidade"))));
-			paramentosPost.add(new BasicNameValuePair("tot", cCliente.getString(cCliente.getColumnIndex("tot"))));
 			paramentosPost.add(new BasicNameValuePair("uf", cCliente.getString(cCliente.getColumnIndex("uf"))));
 			paramentosPost.add(new BasicNameValuePair("cnpj", cCliente.getString(cCliente.getColumnIndex("cnpj"))));
 			paramentosPost.add(new BasicNameValuePair("rg", cCliente.getString(cCliente.getColumnIndex("rg"))));
 			paramentosPost.add(new BasicNameValuePair("inscest", cCliente.getString(cCliente.getColumnIndex("inscest"))));
-			paramentosPost.add(new BasicNameValuePair("resp", cCliente.getString(cCliente.getColumnIndex("resp"))));
+			//paramentosPost.add(new BasicNameValuePair("resp", cCliente.getString(cCliente.getColumnIndex("resp"))));
 			paramentosPost.add(new BasicNameValuePair("email", cCliente.getString(cCliente.getColumnIndex("email"))));
 			paramentosPost.add(new BasicNameValuePair("contato", cCliente.getString(cCliente.getColumnIndex("contato"))));
 			paramentosPost.add(new BasicNameValuePair("cpf", cCliente.getString(cCliente.getColumnIndex("cpf"))));
 			
+			//Log.i("url", url);
 			try {
 				respostaRetornada = ConexaoHTTPClient.executaHttpPost(url, paramentosPost);
 			} catch (Exception e) {
