@@ -64,7 +64,24 @@ public class ProdVendDAO {
 //		db.rawQuery("DELETE from PROD_VEND", null);
 		
 //		Log.d("deleteall dao", "prodvend");
+	}
+	
+	public void deleteCodVend(String cod) {
+		SQLiteDatabase db = new DB(ctx).getReadableDatabase();
+
+		Cursor rs = db.rawQuery("SELECT * FROM prod_vend where codvend=" + cod, null);
+
+		List<ProdVendVO> lista = new ArrayList<ProdVendVO>();
+
+		while (rs.moveToNext()) {
+			
+			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1),
+					rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+			delete(vo);
+		}		
 	}	
+	
 	
 	public boolean update(ProdVendVO vo){
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();

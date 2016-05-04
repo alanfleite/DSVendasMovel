@@ -119,15 +119,33 @@ public class ListarVendas extends Activity {
 
 				String cod = lstVendaC_encontradas.get(position).toString();
 				int p = cod.indexOf("-");
-				String cod1 = cod.substring(0, p - 1);
-
-				// final RecDAO dao = new RecDAO(getBaseContext());
-				// final RecVO vo = dao.getById(Integer.parseInt(cod1));
-
-				// idVendaC = String.valueOf(vo.getCod());
+				final String cod1 = cod.substring(0, p - 1);
 
 				idVendaC = cod1;
-				listarProdutosVenda(cod1);
+				
+				final RecDAO dao = new RecDAO(getBaseContext());
+				final RecVO vo = dao.getById(Integer.parseInt(cod1));
+
+				final String cliente = vo.getRazao();
+
+				
+				Builder msg = new Builder(ListarVendas.this);
+				msg.setMessage("Deseja APAGAR esta venda: " + cliente + "?");
+				msg.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						apagarVendaC(cod1, cliente);
+					}
+				});
+				msg.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						listarProdutosVenda(cod1);					}
+				});
+
+				msg.show();
 			}
 		});
 
@@ -139,13 +157,13 @@ public class ListarVendas extends Activity {
 				//String cod = lstVendaD_encontradas.get(position).toString();
 				//Log.d("Produto selecionado : " + cod);
 				Mensagem("Produto selecionado : " + lstVendaD_encontradas.get(position).toString());
-				Log.d("produtos", "2");
+				//Log.d("produtos", "2");
 				String cod = lstVendaD_encontradas.get(position).toString();
-				Log.d("produtos", "3");
+				//Log.d("produtos", "3");
 				int p = cod.indexOf("-");
-				Log.d("produtos", "4");
+				//Log.d("produtos", "4");
 				String cod1 = cod.substring(0, p - 1);
-				Log.d("produtos", "5 - cod " + cod1); 
+				//Log.d("produtos", "5 - cod " + cod1); 
 				// final RecDAO dao = new RecDAO(getBaseContext());
 				// final RecVO vo = dao.getById(Integer.parseInt(cod1));
 
@@ -273,6 +291,73 @@ public class ListarVendas extends Activity {
 		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 	}
 
+	private void apagarVendaC(String cod, String cliente) {
+		final String cod1 = cod;		
+		
+		final RecDAO dao = new RecDAO(getBaseContext());
+		final RecVO vo = dao.getById(Integer.parseInt(cod1));
+		
+		dao.delete(vo);
+
+		apagarVendaD(cod1);
+		
+		BuscarVendasC();
+		
+		Mensagem("Venda Apagada : " + cliente);
+
+/*		
+		final String cliente = vo.getRazao();
+		
+		Builder msg = new Builder(ListarVendas.this);
+		msg.setMessage("Deseja APAGAR esta venda: " + cliente + "?");
+		msg.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				dao.delete(vo);
+
+				apagarVendaD(cod1);
+				
+				BuscarVendasC();
+				
+				Mensagem("Venda Apagada : " + cliente);
+			}
+		});
+		
+		msg.setNegativeButton("NÃO", null);
+		msg.show();
+*/		
+	}
+
+	private void apagarVendaD(String cod) {
+		final String cod1 = cod;		
+		final ProdVendDAO dao = new ProdVendDAO(getBaseContext());
+		//final ProdVendVO vo = dao.getByCodVend(Integer.parseInt(cod1));
+
+		//final String produto = vo.getProd();
+		dao.deleteCodVend(cod);
+		
+/*		
+        Builder msg = new Builder(ListarVendas.this);
+		msg.setMessage("Deseja APAGAR este produto: " + produto + "?");
+		msg.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				dao.delete(vo);
+
+				listarProdutosVenda(idVendaC);
+				
+				buscarTotalProdutos();
+				
+				Mensagem("Produto Apagado : " + produto);
+			}
+		});
+		msg.setNegativeButton("NÃO", null);
+		msg.show();
+*/		
+	}	
+	
 	private void apagarProduto(String cod) {
 		final String cod1 = cod;		
 		final ProdVendDAO dao = new ProdVendDAO(getBaseContext());
