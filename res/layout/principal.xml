@@ -8,7 +8,7 @@
         android:id="@+id/ibtAuxiliar"
         android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtVendaC"
+        android:layout_marginLeft="30dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="94dp"
         android:src="@drawable/auxiliar" />

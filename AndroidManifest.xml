@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.datasol"
+    package="br.com.datasol.vendasm"
     android:versionCode="1036"
     android:versionName="1.0.36" >
 
@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="br.com.datasol.Login"
+            android:name="br.com.datasol.vendasm.Login"
             android:label="DSVendas - Móvel" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
