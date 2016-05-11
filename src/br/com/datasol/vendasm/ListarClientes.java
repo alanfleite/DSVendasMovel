@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.adapters.Cad_cliAdapter;
 import br.com.datasol.vendasm.dao.Cad_cliDAO;
-import br.com.datasol.vo.Cad_cliVO;
+import br.com.datasol.vendasm.vo.Cad_cliVO;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.datasol.vendasm.DB.DB;
-import br.com.datasol.vo.Cad_cliVO;
+import br.com.datasol.vendasm.vo.Cad_cliVO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,9 +15,9 @@ public class Cad_cliDAO {
 
 	private static String table_name = "cad_cli";
 	private static Context ctx;
-	private static String[] columns = { "cod", "usuario", "razao", "ende",
+	private static String[] columns = { "cod", "codcli", "usuario", "razao", "ende",
 			"ende_num", "fone", "cel", "bairro", "cidade", "uf", "cnpj", "rg",
-			"inscest", "resp", "email", "contato", "cpf" };
+			"inscest", "resp", "email", "contato", "cpf", "atrasoinfo" };
 
 	// "parcelaatrazo", "infoparcelaatrazo"};
 
@@ -29,6 +29,7 @@ public class Cad_cliDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 
 		ContentValues ctv = new ContentValues();
+		ctv.put("codcli", vo.getCodcli());
 		ctv.put("usuario", vo.getUsuario());
 		ctv.put("razao", vo.getRazao());
 		ctv.put("ende", vo.getEnde());
@@ -45,6 +46,7 @@ public class Cad_cliDAO {
 		ctv.put("email", vo.getEmail());
 		ctv.put("contato", vo.getContato());
 		ctv.put("cpf", vo.getCpf());
+		ctv.put("atrasoinfo", vo.getAtrasoinfo());
 		// ctv.put("parcelaatrazo", vo.getParcelaatrazo());
 		// ctv.put("infoparcelaatrazo", vo.getInfoparcelaatrazo());
 		
@@ -70,6 +72,7 @@ public class Cad_cliDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 
 		ContentValues ctv = new ContentValues();
+		ctv.put("codcli", vo.getCodcli());
 		ctv.put("usuario", vo.getUsuario());
 		ctv.put("razao", vo.getRazao());
 		ctv.put("ende", vo.getEnde());
@@ -86,7 +89,7 @@ public class Cad_cliDAO {
 		ctv.put("email", vo.getEmail());
 		ctv.put("contato", vo.getContato());
 		ctv.put("cpf", vo.getCpf());
-		// ctv.put("parcelaatrazo", vo.getParcelaatrazo());
+		ctv.put("atrasoinfo", vo.getAtrasoinfo());
 		// ctv.put("infoparcelaatrazo", vo.getInfoparcelaatrazo());
 		return (db.update(table_name, ctv, "cod=?", new String[] { vo.getCod()
 				.toString() }) > 0);
@@ -103,6 +106,7 @@ public class Cad_cliDAO {
 		if (rs.moveToFirst()) {
 			vo = new Cad_cliVO();
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 			vo.setUsuario(rs.getString(rs.getColumnIndex("usuario")));
 			vo.setRazao(rs.getString(rs.getColumnIndex("razao")));
 			vo.setEnde(rs.getString(rs.getColumnIndex("ende")));
@@ -119,7 +123,7 @@ public class Cad_cliDAO {
 			vo.setEmail(rs.getString(rs.getColumnIndex("email")));
 			vo.setContato(rs.getString(rs.getColumnIndex("contato")));
 			vo.setCpf(rs.getString(rs.getColumnIndex("cpf")));
-			// vo.setParcelaatrazo(rs.getString(rs.getColumnIndex("parcelaatrazo")));
+			vo.setAtrasoinfo(rs.getString(rs.getColumnIndex("atrazoinfo")));
 			// vo.setInfoparcelaatrazo(rs.getString(rs.getColumnIndex("infoparcelaatrazo")));
 		}
 
@@ -137,6 +141,7 @@ public class Cad_cliDAO {
 		if (rs.moveToFirst()) {
 			vo = new Cad_cliVO();
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 			vo.setUsuario(rs.getString(rs.getColumnIndex("usuario")));
 			vo.setRazao(rs.getString(rs.getColumnIndex("razao")));
 			vo.setEnde(rs.getString(rs.getColumnIndex("ende")));
@@ -153,7 +158,7 @@ public class Cad_cliDAO {
 			vo.setEmail(rs.getString(rs.getColumnIndex("email")));
 			vo.setContato(rs.getString(rs.getColumnIndex("contato")));
 			vo.setCpf(rs.getString(rs.getColumnIndex("cpf")));
-			// vo.setParcelaatrazo(rs.getString(rs.getColumnIndex("parcelaatrazo")));
+			vo.setAtrasoinfo(rs.getString(rs.getColumnIndex("atrazoinfo")));
 			// vo.setInfoparcelaatrazo(rs.getString(rs.getColumnIndex("infoparcelaatrazo")));
 		}
 
@@ -171,6 +176,7 @@ public class Cad_cliDAO {
 		if (rs.moveToFirst()) {
 			vo = new Cad_cliVO();
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 			vo.setUsuario(rs.getString(rs.getColumnIndex("usuario")));
 			vo.setRazao(rs.getString(rs.getColumnIndex("razao")));
 			vo.setEnde(rs.getString(rs.getColumnIndex("ende")));
@@ -187,7 +193,7 @@ public class Cad_cliDAO {
 			vo.setEmail(rs.getString(rs.getColumnIndex("email")));
 			vo.setContato(rs.getString(rs.getColumnIndex("contato")));
 			vo.setCpf(rs.getString(rs.getColumnIndex("cpf")));
-			// vo.setParcelaatrazo(rs.getString(rs.getColumnIndex("parcelaatrazo")));
+			vo.setAtrasoinfo(rs.getString(rs.getColumnIndex("atrazoinfo")));
 			// vo.setInfoparcelaatrazo(rs.getString(rs.getColumnIndex("infoparcelaatrazo")));
 		}
 
@@ -204,11 +210,12 @@ public class Cad_cliDAO {
 
 		while (rs.moveToNext()) {
 			Cad_cliVO vo = new Cad_cliVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7),
-					rs.getString(8), rs.getString(9), rs.getString(10),
-					rs.getString(11), rs.getString(12), rs.getString(13),
-					rs.getString(14), rs.getString(15), rs.getString(16));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8),
+					rs.getString(9), rs.getString(10), rs.getString(11),
+					rs.getString(12), rs.getString(13), rs.getString(14),
+					rs.getString(15), rs.getString(16), rs.getString(17));
 			// , rs.getString(17), rs.getString(18));
 			lista.add(vo);
 		}
@@ -217,18 +224,18 @@ public class Cad_cliDAO {
 	}
 
 	public List<String> getAllLista() {
-		Log.d("1", null);
+		//Log.d("1", null);
 		SQLiteDatabase db = new DB(ctx).getReadableDatabase();
-		Log.d("2", null);
+		//Log.d("2", null);
 		Cursor rs = db.rawQuery("SELECT * FROM cad_cli", null);
-		Log.d("3", null);
+		//Log.d("3", null);
 		// List listaVendaC;
 
 		ArrayList<String> lista2 = null;
-		Log.d("4", null);
+		//Log.d("4", null);
 		while (rs.moveToNext()) {
 			lista2.add(rs.getString(1));
-			Log.d("5", rs.getString(1));
+			//Log.d("5", rs.getString(1));
 		}
 
 		return lista2;
@@ -244,11 +251,12 @@ public class Cad_cliDAO {
 
 		while (rs.moveToNext()) {
 			Cad_cliVO vo = new Cad_cliVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7),
-					rs.getString(8), rs.getString(9), rs.getString(10),
-					rs.getString(11), rs.getString(12), rs.getString(13),
-					rs.getString(14), rs.getString(15), rs.getString(16));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8),
+					rs.getString(9), rs.getString(10), rs.getString(11),
+					rs.getString(12), rs.getString(13), rs.getString(14),
+					rs.getString(15), rs.getString(16), rs.getString(17));
 			// , rs.getString(17), rs.getString(18));
 			lista.add(vo);
 		}

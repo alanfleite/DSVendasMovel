@@ -1,7 +1,8 @@
-package br.com.datasol.vo;
+package br.com.datasol.vendasm.vo;
 
 public class Cad_cliVO {
 	private Integer cod;
+	private String codcli;
 	private String usuario;
 	private String razao;
 	private String ende;
@@ -18,6 +19,7 @@ public class Cad_cliVO {
 	private String email;
 	private String contato;
 	private String cpf;
+	private String atrasoinfo;
 //	private String parcelaatrazo;
 //	private String infoparcelaatrazo;
 	
@@ -25,13 +27,14 @@ public class Cad_cliVO {
 		
 	}
 	
-	public Cad_cliVO(Integer cod, String usuario, String razao, String ende,
+	public Cad_cliVO(Integer cod, String codcli, String usuario, String razao, String ende,
 			String ende_num, String fone, String cel, String bairro,
 			String cidade, String uf, String cnpj, String rg,
 			String inscest, String resp, String email, String contato,
 			String cpf) {
 		//, String parcelaatrazo, String infoparcelaatrazo		
 		this.cod = cod;
+		this.codcli = codcli;
 		this.usuario = usuario;
 		this.razao = razao;
 		this.ende = ende;
@@ -60,6 +63,12 @@ public class Cad_cliVO {
 	}
 	public void setCod(Integer cod) {
 		this.cod = cod;
+	}
+	public String getCodcli() {
+		return codcli;
+	}
+	public void setCodcli(String codcli) {
+		this.codcli = codcli;
 	}
 	public String getUsuario() {
 		return usuario;
@@ -157,6 +166,16 @@ public class Cad_cliVO {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	public String getAtrasoinfo() {
+		return atrasoinfo;
+	}
+
+	public void setAtrasoinfo(String atrasoinfo) {
+		this.atrasoinfo = atrasoinfo;
+	}
+
+
 /*	
 	public String getParcelaatrazo() {
 		return parcelaatrazo;

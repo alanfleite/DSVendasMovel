@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.datasol.vendasm.DB.DB;
-import br.com.datasol.vo.ConfigVO;
+import br.com.datasol.vendasm.vo.ConfigVO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ConfigDAO {
 
@@ -25,6 +26,9 @@ public class ConfigDAO {
 		
 		ContentValues ctv = new ContentValues();
 		ctv.put("url", vo.getUrl());
+		ctv.put("usuario", vo.getUsuario());
+		ctv.put("senha", vo.getSenha());
+		
 		return (db.insert(table_name, null, ctv) > 0 );
 	}
 	
@@ -38,6 +42,8 @@ public class ConfigDAO {
 		
 		ContentValues ctv = new ContentValues();
 		ctv.put("url", vo.getUrl());
+		ctv.put("usuario", vo.getUsuario());
+		ctv.put("senha", vo.getSenha());
 		
 		return (db.update(table_name, ctv, "id=?", new String[]{vo.getId().toString()}) > 0);
 	}
@@ -85,4 +91,31 @@ public class ConfigDAO {
 		}		
 		return retorno;
 	}	
+
+	public void alterTable(){
+		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
+		
+	    String sqlConfigTemp = "CREATE TABLE IF NOT EXISTS CONFIGTEMP (id integer primary key autoincrement,"
+	    	      + " url varchar(90), usuario varchar(50), senha varchar(90), tipocliente varchar(90);";
+	      
+	    String sqlConfigPump = "INSERT INTO configtemp (id, url, usuario, senha) SELECT id, url, usuario, senha FROM config;";
+	    	    
+	    //String sqlUpdate = "ALTER TABLE rec ADD COLUMN sinc varchar(1)"; 
+		
+		//db.execSQL(sqlUpdate);
+	    
+	    String[] statements = new String[]{sqlConfigTemp, sqlConfigPump};
+		//String[] statements = new String[]{sqlUpdate};
+		
+		Log.d("alter table 1", "1");
+	    for(String sql : statements){
+		    db.execSQL(sql);
+		}
+	    
+	    
+		
+	    Log.d("alter table 2", "2");
+	}
+	
+	
 }

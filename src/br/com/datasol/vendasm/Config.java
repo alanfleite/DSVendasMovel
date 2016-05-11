@@ -2,7 +2,7 @@ package br.com.datasol.vendasm;
 
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.dao.ConfigDAO;
-import br.com.datasol.vo.ConfigVO;
+import br.com.datasol.vendasm.vo.ConfigVO;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,9 +17,12 @@ public class Config extends Activity{
 	private EditText txtSenha;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.config);
+		
+//		ConfigDAO daoAlter = new ConfigDAO(getBaseContext());
+//		daoAlter.alterTable();
 
 		Button btnSalvar = (Button) findViewById(R.id.btSalvar);
 

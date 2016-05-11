@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.adapters.ConfigAdapter;
 import br.com.datasol.vendasm.dao.ConfigDAO;
-import br.com.datasol.vo.ConfigVO;
+import br.com.datasol.vendasm.vo.ConfigVO;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;

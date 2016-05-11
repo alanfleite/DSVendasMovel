@@ -2,7 +2,7 @@ package br.com.datasol.vendasm;
 
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.dao.Cad_cliDAO;
-import br.com.datasol.vo.Cad_cliVO;
+import br.com.datasol.vendasm.vo.Cad_cliVO;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;

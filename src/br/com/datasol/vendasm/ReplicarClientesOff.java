@@ -8,7 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import br.com.datasol.vendasm.auxilio.FormatarCampos;
 import br.com.datasol.vendasm.conexaoweb.ConexaoHTTPClient;
 import br.com.datasol.vendasm.dao.ConfigDAO;
-import br.com.datasol.vo.ConfigVO;
+import br.com.datasol.vendasm.vo.ConfigVO;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;

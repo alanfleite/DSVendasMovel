@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.datasol.vendasm.DB.DB;
-import br.com.datasol.vo.VendedorVO;
+import br.com.datasol.vendasm.vo.VendedorVO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

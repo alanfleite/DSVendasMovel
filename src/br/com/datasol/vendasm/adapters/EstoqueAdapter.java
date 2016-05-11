@@ -2,7 +2,7 @@ package br.com.datasol.vendasm.adapters;
 
 import java.util.List;
 
-import br.com.datasol.vo.EstoqueVO;
+import br.com.datasol.vendasm.vo.EstoqueVO;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

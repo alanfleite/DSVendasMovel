@@ -1,4 +1,4 @@
-package br.com.datasol.vo;
+package br.com.datasol.vendasm.vo;
 
 public class ClienteVO {
 	

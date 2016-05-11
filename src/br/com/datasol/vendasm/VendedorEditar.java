@@ -2,7 +2,7 @@ package br.com.datasol.vendasm;
 
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.dao.VendedorDAO;
-import br.com.datasol.vo.VendedorVO;
+import br.com.datasol.vendasm.vo.VendedorVO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

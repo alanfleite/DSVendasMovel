@@ -2,7 +2,7 @@ package br.com.datasol.vendasm.adapters;
 
 import java.util.List;
 
-import br.com.datasol.vo.RecVO;
+import br.com.datasol.vendasm.vo.RecVO;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

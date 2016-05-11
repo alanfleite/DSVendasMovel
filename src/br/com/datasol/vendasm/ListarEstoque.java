@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.adapters.EstoqueAdapter;
 import br.com.datasol.vendasm.dao.EstoqueDAO;
-import br.com.datasol.vo.EstoqueVO;
+import br.com.datasol.vendasm.vo.EstoqueVO;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;

@@ -6,7 +6,7 @@ import br.com.datasol.vendasm.adapters.EstoqueAdapter;
 import br.com.datasol.vendasm.auxilio.FormatarCampos;
 import br.com.datasol.vendasm.conexaoweb.ConexaoHTTPClient;
 import br.com.datasol.vendasm.dao.VendedorDAO;
-import br.com.datasol.vo.VendedorVO;
+import br.com.datasol.vendasm.vo.VendedorVO;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
