@@ -74,7 +74,7 @@ public class VendaC extends Activity {
 	Button btBuscarCliente;
 	Button btVoltarCad;
 
-	private int codCliente = 0;
+	private String codCliente;
 	String idVendaC = "";
 	private static int RETORNO_NOME = 1;
 	private static int RETORNO_COR = 1;
@@ -133,7 +133,7 @@ public class VendaC extends Activity {
 		btVoltarCad = (Button) findViewById(R.id.btVoltarCad);
 		
         db = openOrCreateDatabase("datasol.db", Context.MODE_PRIVATE, null);
-		rec = db.rawQuery("SELECT USUARIO, RAZAO, CIDADE, CNPJ, CPF FROM cad_cli order by usuario", null);
+		rec = db.rawQuery("SELECT CODCLI, USUARIO, RAZAO, CIDADE, CNPJ, CPF FROM cad_cli order by usuario", null);
 
 		int contProdEstoq= rec.getCount();
 		lstCliente = new String[contProdEstoq];
@@ -181,12 +181,13 @@ public class VendaC extends Activity {
                 int c = cliente.indexOf("=");
                 //String cnpj = cliente.substring(u, c-1);
                 String razao = cliente.substring(u, c-1);
-                
+                                
                 final Cad_cliDAO dao = new Cad_cliDAO(getBaseContext());
     			//final Cad_cliVO vo = dao.getByCnpj(cnpj);
                 final Cad_cliVO vo = dao.getByRazao(razao);
     			
     			txtID.setText(String.valueOf(vo.getCod()));
+    			codCliente = vo.getCodcli();
     			txtUsuario.setText(vo.getUsuario());
     			txtRazao.setText(vo.getRazao());
     			txtCnpj.setText(vo.getCnpj());
@@ -259,6 +260,7 @@ public class VendaC extends Activity {
 */
 	protected void salvarVendaC() {
 		RecVO vo = new RecVO();
+		vo.setCodcli(codCliente);
 		vo.setFantasia(txtUsuario.getText().toString());
 		vo.setRazao(txtRazao.getText().toString());
 		if (txtTotalGeral.getText().toString().equals("")) {
@@ -288,6 +290,7 @@ public class VendaC extends Activity {
 	protected void atualizarVendaC() {
 		RecVO vo = new RecVO();
 		vo.setCod(Integer.parseInt(txtID.getText().toString()));
+		vo.setCodcli(codCliente);		
 		vo.setFantasia(txtUsuario.getText().toString());
 		vo.setRazao(txtRazao.getText().toString());
 		
@@ -324,6 +327,7 @@ public class VendaC extends Activity {
 		
 		idVendaC = vo.getCod().toString();
 		txtID.setText(vo.getCod().toString());
+		codCliente = vo.getCodcli();
 		txtUsuario.setText(vo.getFantasia());
 		txtRazao.setText(vo.getRazao());
 		txtCnpj.setText(vo.getCnpj());
@@ -340,6 +344,7 @@ public class VendaC extends Activity {
 		final RecVO vo = dao.getUltimo();
 		
 		txtID.setText(vo.getCod().toString());
+		codCliente = vo.getCodcli();
 		txtUsuario.setText(vo.getFantasia());
 		txtRazao.setText(vo.getRazao());
 		txtCnpj.setText(vo.getCnpj());
@@ -353,6 +358,7 @@ public class VendaC extends Activity {
 	
 	protected void limparTela(){
 		txtID.setText("");
+		codCliente = "";
 		txtUsuario.setText("");
 		txtRazao.setText("");
 		txtCnpj.setText("");
@@ -392,21 +398,22 @@ public class VendaC extends Activity {
     }	
     
     public void BuscarVendaC(String id){
-    	Log.d("VendaC", "1 " + id);
+    	//Log.d("VendaC", "1 " + id);
 		final RecDAO dao = new RecDAO(getBaseContext());
 		final RecVO vo = dao.getById(Integer.parseInt(id));
 		
-		Log.d("VendaC", "2 " + id);
+		//Log.d("VendaC", "2 " + id);
 		txtID.setText(vo.getCod().toString());
+		codCliente = vo.getCodcli();
 		txtUsuario.setText(vo.getFantasia());
 		txtRazao.setText(vo.getRazao());
 		txtCnpj.setText(vo.getCnpj());
 		txtCondPg.setText(vo.getCondpg());
 		txtTotalGeral.setText(vo.getTot());
 		txtCidade.setText(vo.getCidade());
-		Log.d("VendaC", "3 " + vo.getFantasia());
+		//Log.d("VendaC", "3 " + vo.getFantasia());
 		btSalvarVendaC.setEnabled(false);
 		btAtualizarVendaC.setEnabled(true);
-		Log.d("VendaC", "4 " + id + " - " + vo.getFantasia());
+		//Log.d("VendaC", "4 " + id + " - " + vo.getFantasia());
     }
 }

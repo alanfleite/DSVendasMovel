@@ -2,6 +2,7 @@ package br.com.datasol.vendasm.vo;
 
 public class ProdVendVO {
 	private Integer cod;
+	private String codprod;
 	private String prod;
 	private String q1;
 	private String vl_u;
@@ -10,15 +11,17 @@ public class ProdVendVO {
 	private String data;	
 	private String unid;
 	private String vendedor;
+	private String codcli;
 	
 	public ProdVendVO() {
 		
 	}
 
-	public ProdVendVO(Integer cod, String prod, String q1, String vl_u,
+	public ProdVendVO(Integer cod, String codprod, String prod, String q1, String vl_u,
 			String vl_t, String codvend, String data, String unid,
-			String vendedor) {
+			String vendedor, String codcli) {
 		this.cod = cod;
+		this.codprod = codprod;
 		this.prod = prod;
 		this.q1 = q1;
 		this.vl_u = vl_u;
@@ -27,6 +30,7 @@ public class ProdVendVO {
 		this.data = data;
 		this.unid = unid;
 		this.vendedor = vendedor;
+		this.codcli = codcli;
 	}
 
 	public Integer getCod() {
@@ -35,6 +39,14 @@ public class ProdVendVO {
 
 	public void setCod(Integer cod) {
 		this.cod = cod;
+	}
+
+	public String getCodprod() {
+		return codprod;
+	}
+
+	public void setCodprod(String codprod) {
+		this.codprod = codprod;
 	}
 
 	public String getProd() {
@@ -99,5 +111,13 @@ public class ProdVendVO {
 
 	public void setVendedor(String vendedor) {
 		this.vendedor = vendedor;
+	}
+
+	public String getCodcli() {
+		return codcli;
+	}
+
+	public void setCodcli(String codcli) {
+		this.codcli = codcli;
 	}
 }

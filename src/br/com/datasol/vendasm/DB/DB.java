@@ -13,10 +13,10 @@ public class DB extends SQLiteOpenHelper{
 	private static String dbName = "datasol.db";
 	
 	private static String sqlCliente = "CREATE TABLE IF NOT EXISTS CAD_CLI (cod integer primary key autoincrement,"     
-    + " usuario varchar(90), razao varchar(90), ende varchar(80), ende_num varchar(15), fone varchar(50), cel varchar(13),"
-    + " bairro varchar(25), cidade varchar(90), uf varchar(2), cnpj varchar(18), rg varchar(25), inscest varchar(20),"
-    + " resp varchar(70), email varchar(70), contato varchar(80), cpf varchar(25), atraso varchar(1), atrasoinfo varchar(160),"
-    + " atrasovl varchar(15), campo1 varchar(90), campo2 varchar(90));";
+    + " codcli varchar(15), usuario varchar(90), razao varchar(90), ende varchar(80), ende_num varchar(15), fone varchar(50), "
+    + " cel varchar(13), bairro varchar(25), cidade varchar(90), uf varchar(2), cnpj varchar(18), rg varchar(25), "
+    + " inscest varchar(20), resp varchar(70), email varchar(70), contato varchar(80), cpf varchar(25), atraso varchar(1), "
+    + " atrasoinfo varchar(160), atrasovl varchar(15), campo1 varchar(90), campo2 varchar(90));";
 
 	private static String sqlEstoque = "CREATE TABLE IF NOT EXISTS ESTOQ (cod integer primary key autoincrement,"     
 			+ " prod varchar(90), codprod varchar(20), q1 decimal(12,4), vt decimal(12,2), unid varchar(15));";
@@ -37,7 +37,7 @@ public class DB extends SQLiteOpenHelper{
 		  
     private static String sqlConfig = "CREATE TABLE IF NOT EXISTS CONFIG (id integer primary key autoincrement,"
     	      + " url varchar(90), usuario varchar(50), senha varchar(90), filtrocliente varchar(15), versaonova varchar(10),"
-    		  + " versaoant varchar(10), campo1 varchar(90), campo2 varchar(90);";
+    		  + " versaoant varchar(10), campo1 varchar(90), campo2 varchar(90));";
        
 	String[] statements = new String[]{sqlCliente, sqlEstoque, sqlRec, sqlProdvend, sqlVendedor, sqlConfig};
 	

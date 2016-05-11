@@ -175,6 +175,7 @@ public class Cad_cliDAO {
 
 		if (rs.moveToFirst()) {
 			vo = new Cad_cliVO();
+			
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
 			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 			vo.setUsuario(rs.getString(rs.getColumnIndex("usuario")));
@@ -193,8 +194,6 @@ public class Cad_cliDAO {
 			vo.setEmail(rs.getString(rs.getColumnIndex("email")));
 			vo.setContato(rs.getString(rs.getColumnIndex("contato")));
 			vo.setCpf(rs.getString(rs.getColumnIndex("cpf")));
-			vo.setAtrasoinfo(rs.getString(rs.getColumnIndex("atrazoinfo")));
-			// vo.setInfoparcelaatrazo(rs.getString(rs.getColumnIndex("infoparcelaatrazo")));
 		}
 
 		return vo;

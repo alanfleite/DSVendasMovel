@@ -64,6 +64,9 @@ public class VendaD extends Activity {
 	int idItem = 0;
 	private static int MENU_EDITAR = 1;
 	private String nome;
+	private String codCliente;
+	private String codProd;
+	private String unid;
 	
 	private String codigo;
 	private String TotalGeral;
@@ -193,10 +196,12 @@ public class VendaD extends Activity {
     			//txtQt = (EditText) findViewById(R.id.txtQt);
     			//txtVu = (EditText) findViewById(R.id.txtVU);
     			vlProduto = null;
+    			codProd = vo.getCodprod();
     			txtProduto.setText(vo.getProd());
     			txtVu.setText(vo.getVt());
     			txtQt.setText("");
     			vlProduto = Double.parseDouble(vo.getVt());
+    			unid = vo.getUnid();
             }  
         });  
         
@@ -317,18 +322,22 @@ public class VendaD extends Activity {
     	double Vt;
     	
 		Vt = Vu * Qt;
-		Log.d("salvarD","1 " + Vt);
+		//Log.d("salvarD","1 " + Vt);
 		vlTotal = vlTotal + Vt;
 		//txtTotalGeral.setText(String.valueOf(vlTotal));
 		
 		ProdVendVO vo = new ProdVendVO();
 		
 		vo.setCodvend(idVendaC);
+		vo.setCodprod(codProd);
 		vo.setProd(txtProduto.getText().toString());
 		vo.setVl_u(txtVu.getText().toString());
 		vo.setQ1(txtQt.getText().toString());
 		//vo.setVl_t(String.valueOf(vlTotal));
 		vo.setVl_t(String.valueOf(Vt));
+		vo.setData(fc.dataSalvarSQLite());
+		vo.setCodcli(codCliente);
+		vo.setUnid(unid);
 		
 		//pegando o vendedor		
 		VendedorDAO vDAO = new VendedorDAO(getBaseContext());
@@ -355,7 +364,8 @@ public class VendaD extends Activity {
 		final RecDAO dao = new RecDAO(getBaseContext());
 		final RecVO vo = dao.getUltimo();
 		
-		idVendaC = vo.getCod().toString();
+		idVendaC   = vo.getCod().toString();
+		codCliente = vo.getCodcli().toString();
 		txvVlTotalG.setText(vo.getTot());
 	}
 	

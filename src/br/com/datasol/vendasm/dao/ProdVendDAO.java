@@ -16,7 +16,7 @@ public class ProdVendDAO {
 	
 	private static String table_name = "prod_vend";
 	private static Context ctx;
-	private static String[] columns = {"cod", "prod", "q1", "vl_u", "vl_t", "codvend", "data", "unid", "vendedor"};
+	private static String[] columns = {"cod", "codprod", "prod", "q1", "vl_u", "vl_t", "codvend", "data", "unid", "vendedor", "codcli"};
 	
 	public ProdVendDAO(Context ctx) {
 		this.ctx = ctx;
@@ -26,6 +26,7 @@ public class ProdVendDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 		
 		ContentValues ctv = new ContentValues();
+		ctv.put("codprod", vo.getCodprod());
 		ctv.put("prod", vo.getProd());
 		ctv.put("q1", vo.getQ1());
 		ctv.put("vl_u", vo.getVl_u());
@@ -34,6 +35,7 @@ public class ProdVendDAO {
 		ctv.put("data", vo.getData());
 		ctv.put("unid", vo.getUnid());
 		ctv.put("vendedor", vo.getVendedor());
+		ctv.put("codcli", vo.getCodcli());
 		
 		return (db.insert(table_name, null, ctv) > 0 );
 	}
@@ -53,8 +55,10 @@ public class ProdVendDAO {
 		while (rs.moveToNext()) {
 			
 			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), 
+					rs.getString(9), rs.getString(10));
 			//listaVendaC.add(vo);
 			
 			delete(vo);
@@ -76,8 +80,10 @@ public class ProdVendDAO {
 		while (rs.moveToNext()) {
 			
 			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), 
+					rs.getString(9), rs.getString(10));
 			delete(vo);
 		}		
 	}	
@@ -87,6 +93,7 @@ public class ProdVendDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 		
 		ContentValues ctv = new ContentValues();
+		ctv.put("codprod", vo.getCodprod());
 		ctv.put("prod", vo.getProd());
 		ctv.put("q1", vo.getQ1());
 		ctv.put("vl_u", vo.getVl_u());
@@ -95,6 +102,7 @@ public class ProdVendDAO {
 		ctv.put("data", vo.getData());
 		ctv.put("unid", vo.getUnid());
 		ctv.put("vendedor", vo.getVendedor());
+		ctv.put("codcli", vo.getCodcli());
 
 		return (db.update(table_name, ctv, "cod=?", new String[]{vo.getCod().toString()}) > 0);
 	}	
@@ -109,6 +117,7 @@ public class ProdVendDAO {
 		if(rs.moveToFirst()){
 			vo = new ProdVendVO();
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+			vo.setCodprod(rs.getString(rs.getColumnIndex("codprod")));
 			vo.setProd(rs.getString(rs.getColumnIndex("prod")));
 			vo.setQ1(rs.getString(rs.getColumnIndex("q1")));
 			vo.setVl_u(rs.getString(rs.getColumnIndex("vl_u")));
@@ -117,6 +126,7 @@ public class ProdVendDAO {
 			vo.setData(rs.getString(rs.getColumnIndex("data")));
 			vo.setUnid(rs.getString(rs.getColumnIndex("unid")));
 			vo.setVendedor(rs.getString(rs.getColumnIndex("vendedor")));
+			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 		}
 		
 		return vo;
@@ -131,8 +141,11 @@ public class ProdVendDAO {
 		List<ProdVendVO> lista = new ArrayList<ProdVendVO>();
 		
 		while(rs.moveToNext()){
-			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-					 rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1), 
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), 
+					rs.getString(9), rs.getString(10));
 			lista.add(vo);
 		}
 
@@ -160,8 +173,11 @@ public class ProdVendDAO {
 		List<ProdVendVO> lista = new ArrayList<ProdVendVO>();
 		
 		while(rs.moveToNext()){
-			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-					 rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+			ProdVendVO vo = new ProdVendVO(rs.getInt(0), rs.getString(1), 
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8), 
+					rs.getString(9), rs.getString(10));
 			lista.add(vo);
 		}
 
@@ -180,6 +196,4 @@ public class ProdVendDAO {
 		}
 		return total;
 	}
-	
-
 }

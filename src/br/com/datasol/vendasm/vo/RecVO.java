@@ -2,6 +2,7 @@ package br.com.datasol.vendasm.vo;
 
 public class RecVO {
 	private Integer cod;
+	private String codcli;
 	private String fantasia;
 	private String razao;
 	private String tot;
@@ -15,9 +16,10 @@ public class RecVO {
 	
 	}
 
-	public RecVO(Integer cod, String fantasia, String razao, String tot,
+	public RecVO(Integer cod, String codcli, String fantasia, String razao, String tot,
 			String cnpj, String condpg, String dataems, String vendedor, String cidade) {
 		this.cod = cod;
+		this.codcli = codcli;
 		this.fantasia = fantasia;
 		this.razao = razao;
 		this.tot = tot;
@@ -34,6 +36,14 @@ public class RecVO {
 
 	public void setCod(Integer cod) {
 		this.cod = cod;
+	}
+	
+	public String getCodcli() {
+		return codcli;
+	}
+
+	public void setCodcli(String codcli) {
+		this.codcli = codcli;
 	}
 
 	public String getFantasia() {

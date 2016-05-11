@@ -18,7 +18,7 @@ public class RecDAO {
 	FormatarCampos fc = new FormatarCampos();
 	private static String table_name = "rec";
 	private static Context ctx;
-	private static String[] columns = { "cod", "fantasia", "razao", "tot",
+	private static String[] columns = { "cod", "codcli", "fantasia", "razao", "tot",
 			"cnpj", "condpg", "dataems", "vendedor", "cida" };
 
 	public RecDAO(Context ctx) {
@@ -30,6 +30,7 @@ public class RecDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 
 		ContentValues ctv = new ContentValues();
+		ctv.put("codcli", vo.getCodcli());
 		ctv.put("fantasia", vo.getFantasia());
 		ctv.put("razao", vo.getRazao());
 		ctv.put("tot", vo.getTot());
@@ -59,9 +60,10 @@ public class RecDAO {
 		while (rs.moveToNext()) {
 
 			RecVO vo = new RecVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7),
-					rs.getString(8));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8),
+					rs.getString(9));
 			// listaVendaC.add(vo);
 
 			delete(vo);
@@ -77,6 +79,7 @@ public class RecDAO {
 		SQLiteDatabase db = new DB(ctx).getWritableDatabase();
 
 		ContentValues ctv = new ContentValues();
+		ctv.put("codcli", vo.getCodcli());
 		ctv.put("fantasia", vo.getFantasia());
 		ctv.put("razao", vo.getRazao());
 		ctv.put("tot", vo.getTot());
@@ -110,6 +113,7 @@ public class RecDAO {
 			vo = new RecVO();
 			
 			vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 			vo.setFantasia(rs.getString(rs.getColumnIndex("fantasia")));
 			vo.setRazao(rs.getString(rs.getColumnIndex("razao")));
 			vo.setTot(rs.getString(rs.getColumnIndex("tot")));
@@ -133,9 +137,11 @@ public class RecDAO {
 
 		while (rs.moveToNext()) {
 			RecVO vo = new RecVO(rs.getInt(0), rs.getString(1),
-					rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getString(6), rs.getString(7),
-					rs.getString(8));
+					rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getString(7), rs.getString(8),
+					rs.getString(9));
+			
 			lista.add(vo);
 		}
 
@@ -165,20 +171,21 @@ public class RecDAO {
 		//rs.moveToLast();
 		int contReg = 0;
 		contReg = rs.getCount();
-		Log.d("UltimoID", "id " + contReg);
+		//Log.d("UltimoID", "id " + contReg);
 
 		if (contReg > 0) {
 			//Log.d("if", "1 " + contReg + " - " + rs.getString(rs.getColumnIndex("fantasia")));
-			Log.d("if", "1 " + contReg);
+			//Log.d("if", "1 " + contReg);
 			//rs.moveToFirst();
 
 			while (rs.moveToNext()) {
 				// if(rs.moveToLast()){
-				Log.d("if", "2");
+				//Log.d("if", "2");
 				if (rs.isLast()) {
 					vo = new RecVO();
-					Log.d("if", "3");
+					//Log.d("if", "3");
 					vo.setCod(rs.getInt(rs.getColumnIndex("cod")));
+					vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
 					vo.setFantasia(rs.getString(rs.getColumnIndex("fantasia")));
 					vo.setRazao(rs.getString(rs.getColumnIndex("razao")));
 					vo.setTot(rs.getString(rs.getColumnIndex("tot")));
@@ -194,22 +201,22 @@ public class RecDAO {
 	
 	  else {
 		  vo = new RecVO();
-			Log.d("if", "4");
+			//Log.d("if", "4");
 			vo.setCod(0);
 			vo.setFantasia("sem venda");
 			vo.setRazao("sem venda");
-			Log.d("if", "4.1");
+			//Log.d("if", "4.1");
 //			vo.setTot("sem venda");
 			vo.setCnpj("sem venda");
 			vo.setCondpg("sem venda");
-			Log.d("if", "4.2");
+			//Log.d("if", "4.2");
 //			vo.setDataems("sem venda");
 			vo.setVendedor("sem venda");
 			vo.setCidade("sem venda");
-			Log.d("if", "5");
+			//Log.d("if", "5");
 		}
 
-		Log.d("vo", vo.getFantasia());
+		//Log.d("vo", vo.getFantasia());
 		
 		return vo;
 

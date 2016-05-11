@@ -40,10 +40,13 @@ public class Login extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				ConfigDAO configDAO = new ConfigDAO(getBaseContext());							
-				String login = configDAO.verificaLogin(etUsuario.getText().toString(), etSenha.getText().toString());
+				if (etUsuario.getText().toString().equals(usuario) && etSenha.getText().toString().equals(senha)){
+					startActivity(new Intent(Login.this,Principal.class));
+				}else{				
+					ConfigDAO configDAO = new ConfigDAO(getBaseContext());							
+					String login = configDAO.verificaLogin(etUsuario.getText().toString(), etSenha.getText().toString());
 				//Log.d("login", login);
-				if (login=="1"){
+					if (login=="1"){
 					startActivity(new Intent(Login.this,Principal.class));					
 				} else {
 					if (etUsuario.getText().toString().equals(usuario) && etSenha.getText().toString().equals(senha)){
@@ -51,6 +54,7 @@ public class Login extends Activity {
 					}else{
 						mensagemExibir("Login", "Dados não conferem, favor digitar novamente!");
 					}
+				}
 				}
 /*								
 				if (etUsuario.getText().toString().equals(usuario) && etSenha.getText().toString().equals(senha)){
