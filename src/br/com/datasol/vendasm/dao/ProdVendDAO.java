@@ -16,7 +16,7 @@ public class ProdVendDAO {
 	
 	private static String table_name = "prod_vend";
 	private static Context ctx;
-	private static String[] columns = {"cod", "codprod", "prod", "q1", "vl_u", "vl_t", "codvend", "data", "unid", "vendedor", "codcli"};
+	private static String[] columns = {"cod", "codprod", "prod", "q1", "vl_u", "vl_t", "codvend", "data", "unid", "vendedor", "codcli", "sincronizado"};
 	
 	public ProdVendDAO(Context ctx) {
 		this.ctx = ctx;
@@ -36,6 +36,7 @@ public class ProdVendDAO {
 		ctv.put("unid", vo.getUnid());
 		ctv.put("vendedor", vo.getVendedor());
 		ctv.put("codcli", vo.getCodcli());
+		ctv.put("sincronizado", vo.getSincronizado());
 		
 		return (db.insert(table_name, null, ctv) > 0 );
 	}
@@ -58,7 +59,7 @@ public class ProdVendDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8), 
-					rs.getString(9), rs.getString(10));
+					rs.getString(9), rs.getString(10), rs.getString(11));
 			//listaVendaC.add(vo);
 			
 			delete(vo);
@@ -83,7 +84,7 @@ public class ProdVendDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8), 
-					rs.getString(9), rs.getString(10));
+					rs.getString(9), rs.getString(10), rs.getString(11));
 			delete(vo);
 		}		
 	}	
@@ -103,6 +104,7 @@ public class ProdVendDAO {
 		ctv.put("unid", vo.getUnid());
 		ctv.put("vendedor", vo.getVendedor());
 		ctv.put("codcli", vo.getCodcli());
+		ctv.put("sincronizado", vo.getSincronizado());
 
 		return (db.update(table_name, ctv, "cod=?", new String[]{vo.getCod().toString()}) > 0);
 	}	
@@ -127,6 +129,7 @@ public class ProdVendDAO {
 			vo.setUnid(rs.getString(rs.getColumnIndex("unid")));
 			vo.setVendedor(rs.getString(rs.getColumnIndex("vendedor")));
 			vo.setCodcli(rs.getString(rs.getColumnIndex("codcli")));
+			vo.setSincronizado(rs.getString(rs.getColumnIndex("sincronizado")));
 		}
 		
 		return vo;
@@ -145,7 +148,7 @@ public class ProdVendDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8), 
-					rs.getString(9), rs.getString(10));
+					rs.getString(9), rs.getString(10), rs.getString(11));
 			lista.add(vo);
 		}
 
@@ -177,7 +180,7 @@ public class ProdVendDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8), 
-					rs.getString(9), rs.getString(10));
+					rs.getString(9), rs.getString(10), rs.getString(11));
 			lista.add(vo);
 		}
 

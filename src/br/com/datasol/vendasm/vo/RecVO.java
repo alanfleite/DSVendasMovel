@@ -11,13 +11,14 @@ public class RecVO {
 	private String dataems;
 	private String vendedor;
 	private String cidade;
+	private String sincronizado;
 	
 	public RecVO() {
 	
 	}
 
 	public RecVO(Integer cod, String codcli, String fantasia, String razao, String tot,
-			String cnpj, String condpg, String dataems, String vendedor, String cidade) {
+			String cnpj, String condpg, String dataems, String vendedor, String cidade, String sincronizado) {
 		this.cod = cod;
 		this.codcli = codcli;
 		this.fantasia = fantasia;
@@ -28,6 +29,7 @@ public class RecVO {
 		this.dataems = dataems;
 		this.vendedor = vendedor;
 		this.cidade = cidade;
+		this.sincronizado = sincronizado;
 	}
 
 	public Integer getCod() {
@@ -109,4 +111,12 @@ public class RecVO {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+
+	public String getSincronizado() {
+		return sincronizado;
+	}
+
+	public void setSincronizado(String sincronizado) {
+		this.sincronizado = sincronizado;
+	}	
 }

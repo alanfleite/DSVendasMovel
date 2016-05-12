@@ -25,12 +25,12 @@ public class DB extends SQLiteOpenHelper{
 			+ " fantasia varchar(120), razao varchar(90), codcli varchar(15), ende varchar(80)," 
 			+ " cida varchar(45), uf varchar(2), tot decimal(15,2), totg decimal(15,2), cpf varchar(14)," 
             + "cnpj varchar(18), condpg varchar(35), dataems date, vendedor varchar(90), codvend varchar(15),"
-			+ "sincrinozado varchar(1), campo1 varchar(90), campo2 varchar(90));";
+			+ "sincronizado varchar(1), campo1 varchar(90), campo2 varchar(90));";
     		
     private static String sqlProdvend = "CREATE TABLE IF NOT EXISTS PROD_VEND (cod integer primary key autoincrement,"
     	      + " prod varchar(80), q1 decimal(12,4), vl_u decimal(12,4), vl_t decimal(15,2), codvend varchar(15),"
     	      + " data date, unid varchar(15), codprod varchar(20), codcli varchar(20), vendedor varchar(90),"
-    	      + " sincrinozado varchar(1), campo1 varchar(90), campo2 varchar(90));";
+    	      + " sincronizado varchar(1), campo1 varchar(90), campo2 varchar(90));";
 
     private static String sqlVendedor = "CREATE TABLE IF NOT EXISTS VENDEDOR (cod integer primary key autoincrement,"
   	      + " nome varchar(90), campo1 varchar(90), campo2 varchar(90));";

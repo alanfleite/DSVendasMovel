@@ -12,6 +12,7 @@ public class ProdVendVO {
 	private String unid;
 	private String vendedor;
 	private String codcli;
+	private String sincronizado;
 	
 	public ProdVendVO() {
 		
@@ -19,7 +20,7 @@ public class ProdVendVO {
 
 	public ProdVendVO(Integer cod, String codprod, String prod, String q1, String vl_u,
 			String vl_t, String codvend, String data, String unid,
-			String vendedor, String codcli) {
+			String vendedor, String codcli, String sincronizado) {
 		this.cod = cod;
 		this.codprod = codprod;
 		this.prod = prod;
@@ -31,6 +32,7 @@ public class ProdVendVO {
 		this.unid = unid;
 		this.vendedor = vendedor;
 		this.codcli = codcli;
+		this.sincronizado = sincronizado;
 	}
 
 	public Integer getCod() {
@@ -120,4 +122,12 @@ public class ProdVendVO {
 	public void setCodcli(String codcli) {
 		this.codcli = codcli;
 	}
+
+	public String getSincronizado() {
+		return sincronizado;
+	}
+
+	public void setSincronizado(String sincronizado) {
+		this.sincronizado = sincronizado;
+	}	
 }

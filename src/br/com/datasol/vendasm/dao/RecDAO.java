@@ -19,7 +19,7 @@ public class RecDAO {
 	private static String table_name = "rec";
 	private static Context ctx;
 	private static String[] columns = { "cod", "codcli", "fantasia", "razao", "tot",
-			"cnpj", "condpg", "dataems", "vendedor", "cida" };
+			"cnpj", "condpg", "dataems", "vendedor", "cida", "sincronizado" };
 
 	public RecDAO(Context ctx) {
 		this.ctx = ctx;
@@ -40,6 +40,7 @@ public class RecDAO {
 		ctv.put("dataems", vo.getDataems());
 		ctv.put("vendedor", vo.getVendedor());
 		ctv.put("cida", vo.getCidade());
+		ctv.put("sincronizado", vo.getSincronizado());
 
 		return (db.insert(table_name, null, ctv) > 0);
 	}
@@ -63,7 +64,7 @@ public class RecDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8),
-					rs.getString(9));
+					rs.getString(9), rs.getString(10));
 			// listaVendaC.add(vo);
 
 			delete(vo);
@@ -88,9 +89,9 @@ public class RecDAO {
 		ctv.put("dataems", vo.getDataems());
 		ctv.put("vendedor", vo.getVendedor());
 		ctv.put("cida", vo.getCidade());
+		ctv.put("sincronizado", vo.getSincronizado());
 
-		return (db.update(table_name, ctv, "cod=?", new String[] { vo.getCod()
-				.toString() }) > 0);
+		return (db.update(table_name, ctv, "cod=?", new String[] { vo.getCod().toString() }) > 0);
 	}
 
 	public boolean updateTotalG(RecVO vo) {
@@ -122,6 +123,7 @@ public class RecDAO {
 			vo.setDataems(rs.getString(rs.getColumnIndex("dataems")));
 			vo.setVendedor(rs.getString(rs.getColumnIndex("vendedor")));
 			vo.setCidade(rs.getString(rs.getColumnIndex("cida")));
+			vo.setSincronizado(rs.getString(rs.getColumnIndex("sincronizado")));
 		}
 
 		return vo;
@@ -140,7 +142,7 @@ public class RecDAO {
 					rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getString(7), rs.getString(8),
-					rs.getString(9));
+					rs.getString(9), rs.getString(10));
 			
 			lista.add(vo);
 		}
@@ -194,15 +196,15 @@ public class RecDAO {
 					vo.setDataems(rs.getString(rs.getColumnIndex("dataems")));
 					vo.setVendedor(rs.getString(rs.getColumnIndex("vendedor")));
 					vo.setCidade(rs.getString(rs.getColumnIndex("cida")));
+					vo.setSincronizado(rs.getString(rs.getColumnIndex("sincronizado")));
 				}
 			}
 			
-		}
-	
-	  else {
+		} else {
 		  vo = new RecVO();
 			//Log.d("if", "4");
 			vo.setCod(0);
+			vo.setCodcli("");
 			vo.setFantasia("sem venda");
 			vo.setRazao("sem venda");
 			//Log.d("if", "4.1");
@@ -213,6 +215,7 @@ public class RecDAO {
 //			vo.setDataems("sem venda");
 			vo.setVendedor("sem venda");
 			vo.setCidade("sem venda");
+			vo.setSincronizado("N");
 			//Log.d("if", "5");
 		}
 
@@ -231,5 +234,5 @@ public class RecDAO {
 		 * return listaVendaC;
 		 */
 	}
-
+	
 }

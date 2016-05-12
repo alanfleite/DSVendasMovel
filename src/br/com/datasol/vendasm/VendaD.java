@@ -338,6 +338,7 @@ public class VendaD extends Activity {
 		vo.setData(fc.dataSalvarSQLite());
 		vo.setCodcli(codCliente);
 		vo.setUnid(unid);
+		vo.setSincronizado("N");
 		
 		//pegando o vendedor		
 		VendedorDAO vDAO = new VendedorDAO(getBaseContext());

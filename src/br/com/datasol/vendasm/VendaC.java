@@ -101,30 +101,7 @@ public class VendaC extends Activity {
 		txtCondPg = (EditText) findViewById(R.id.txtCondPgto);
 		
 		etProcurar = (EditText) findViewById(R.id.etProcurar);
-				
-/*		
-		if (buscarCliente > 0) {
-			Log.d("venda it", " - ");
-			Intent it = getIntent();
-			codCliente = it.getIntExtra("codigo", 1);
-			Log.d("venda it", String.valueOf(codCliente));
-			final Cad_cliDAO dao = new Cad_cliDAO(getBaseContext());
-			final Cad_cliVO vo = dao.getById(codCliente);
-
-			txtID = (EditText) findViewById(R.id.txtCod);
-			txtUsuario = (EditText) findViewById(R.id.txtFantasia);
-			txtRazao = (EditText) findViewById(R.id.txtRazao);
-			txtCnpj = (EditText) findViewById(R.id.txtCnpj);
-
-			txtID.setText(vo.getCod().toString());
-			txtUsuario.setText(vo.getUsuario());
-			txtRazao.setText(vo.getRazao());
-			txtCnpj.setText(vo.getCnpj());
-			
-			Log.d("venda it", "nome " + vo.getUsuario());
-		}
-*/		
-		
+					
 		btNovo = (Button) findViewById(R.id.btNovoVendaC);
 		btSalvarVendaC = (Button) findViewById(R.id.btSalvar);
 		btAtualizarVendaC = (Button) findViewById(R.id.btAlterar);
@@ -133,7 +110,7 @@ public class VendaC extends Activity {
 		btVoltarCad = (Button) findViewById(R.id.btVoltarCad);
 		
         db = openOrCreateDatabase("datasol.db", Context.MODE_PRIVATE, null);
-		rec = db.rawQuery("SELECT CODCLI, USUARIO, RAZAO, CIDADE, CNPJ, CPF FROM cad_cli order by usuario", null);
+		rec = db.rawQuery("SELECT USUARIO, RAZAO, CIDADE, CNPJ, CPF FROM cad_cli order by usuario", null);
 
 		int contProdEstoq= rec.getCount();
 		lstCliente = new String[contProdEstoq];
@@ -148,8 +125,9 @@ public class VendaC extends Activity {
 		}
 
 		lvCliente.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lstCliente));
+
         CarregarEncontrados();  
-        
+
         etProcurar.addTextChangedListener(new TextWatcher()  
         {  
             public void afterTextChanged(Editable s)  
@@ -168,7 +146,8 @@ public class VendaC extends Activity {
        
                 lvCliente.setAdapter(new ArrayAdapter<String>(VendaC.this, android.R.layout.simple_list_item_1, lstCliente_Encontrados));  
             }  
-        });  
+        });          
+		
         lvCliente.setOnItemClickListener(new OnItemClickListener() {  
             @Override  
             public void onItemClick(AdapterView arg0, View view, int position, long index) {  
@@ -211,18 +190,7 @@ public class VendaC extends Activity {
 				limparTela();
 			}
 		});
-/*		
-		btBuscarCliente.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				startActivityForResult(new Intent(getBaseContext(),
-						ListarClientes.class), RETORNO_COR);
-				
-				buscarCliente = buscarCliente + 1; 
-			}
-		});
-*/		
 		btSalvarVendaC.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -246,7 +214,7 @@ public class VendaC extends Activity {
 //				buscarUltimaVenda();
 			}
 		});
-		
+
 		buscarUltimaVenda1();
 	}
 /*
@@ -260,6 +228,11 @@ public class VendaC extends Activity {
 */
 	protected void salvarVendaC() {
 		RecVO vo = new RecVO();
+		
+		//pegando o vendedor		
+		VendedorDAO vDAO = new VendedorDAO(getBaseContext());
+		VendedorVO vVO= vDAO.getById(1);
+
 		vo.setCodcli(codCliente);
 		vo.setFantasia(txtUsuario.getText().toString());
 		vo.setRazao(txtRazao.getText().toString());
@@ -271,13 +244,9 @@ public class VendaC extends Activity {
 		vo.setDataems(fc.dataSalvarSQLite());
 		vo.setCnpj(txtCnpj.getText().toString());
 		vo.setCondpg(txtCondPg.getText().toString());
-		
-//pegando o vendedor		
-		VendedorDAO vDAO = new VendedorDAO(getBaseContext());
-		VendedorVO vVO= vDAO.getById(1);
-		
 		vo.setVendedor(vVO.getNome());
 		vo.setCidade(txtCidade.getText().toString());
+		vo.setSincronizado("N");
 
 		RecDAO dao = new RecDAO(getBaseContext());
 		if (dao.insert(vo)) {
@@ -289,14 +258,18 @@ public class VendaC extends Activity {
 	
 	protected void atualizarVendaC() {
 		RecVO vo = new RecVO();
+		
+		ProdVendDAO pvdao = new ProdVendDAO(getBaseContext());
+		
+		//pegando o vendedor		
+    	VendedorDAO vDAO = new VendedorDAO(getBaseContext());
+		VendedorVO vVO= vDAO.getById(1);
+		
 		vo.setCod(Integer.parseInt(txtID.getText().toString()));
 		vo.setCodcli(codCliente);		
 		vo.setFantasia(txtUsuario.getText().toString());
 		vo.setRazao(txtRazao.getText().toString());
-		
-		ProdVendDAO pvdao = new ProdVendDAO(getBaseContext());
-		txtTotalGeral.setText(pvdao.getSomaProdutos(txtID.getText().toString()));
-		
+		txtTotalGeral.setText(pvdao.getSomaProdutos(txtID.getText().toString()));	
 		if (txtTotalGeral.getText().toString().equals("") || txtTotalGeral.getText().toString().equals("0.00")) {
 			vo.setTot("0.00");
 		} else {
@@ -306,12 +279,8 @@ public class VendaC extends Activity {
 		vo.setCnpj(txtCnpj.getText().toString());
 		vo.setCidade(txtCidade.getText().toString());
 		vo.setCondpg(txtCondPg.getText().toString());
-		
-		//pegando o vendedor		
-    	VendedorDAO vDAO = new VendedorDAO(getBaseContext());
-		VendedorVO vVO= vDAO.getById(1);
-				
 		vo.setVendedor(vVO.getNome());
+		vo.setSincronizado("N");
 
 		RecDAO dao = new RecDAO(getBaseContext());
 		if (dao.update(vo)) {
@@ -325,6 +294,8 @@ public class VendaC extends Activity {
 		final RecDAO dao = new RecDAO(getBaseContext());
 		final RecVO vo = dao.getUltimo();
 		
+		ProdVendDAO pvdao = new ProdVendDAO(getBaseContext());
+		
 		idVendaC = vo.getCod().toString();
 		txtID.setText(vo.getCod().toString());
 		codCliente = vo.getCodcli();
@@ -332,9 +303,6 @@ public class VendaC extends Activity {
 		txtRazao.setText(vo.getRazao());
 		txtCnpj.setText(vo.getCnpj());
 		txtCondPg.setText(vo.getCondpg());
-		
-		ProdVendDAO pvdao = new ProdVendDAO(getBaseContext());
-		
 		txtTotalGeral.setText(pvdao.getSomaProdutos(txtID.getText().toString()));
 		txtCidade.setText(vo.getCidade());
 	}
@@ -342,9 +310,9 @@ public class VendaC extends Activity {
 	protected void buscarUltimaVenda1() {
 		final RecDAO dao = new RecDAO(getBaseContext());
 		final RecVO vo = dao.getUltimo();
-		
+
 		txtID.setText(vo.getCod().toString());
-		codCliente = vo.getCodcli();
+		codCliente = vo.getCodcli().toString();
 		txtUsuario.setText(vo.getFantasia());
 		txtRazao.setText(vo.getRazao());
 		txtCnpj.setText(vo.getCnpj());
