@@ -47,6 +47,7 @@ public class ReplicarVendasOff1 extends ListActivity {
 	private int total = 0;
 	private ProgressDialog pg;
 	private SQLiteDatabase db;
+	private String sinc="N";
 	FormatarCampos fc = new FormatarCampos();
 	//public String url;
 	//public String vendedor;
@@ -70,10 +71,11 @@ public class ReplicarVendasOff1 extends ListActivity {
 	public void iniciarReplicacaoVendaC(){
 		
 		//db = openOrCreateDatabase("datasol.db", Context.MODE_PRIVATE, null);
-		
-		rec = db.rawQuery("SELECT FANTASIA, RAZAO, CNPJ, TOT, DATAEMS, VENDEDOR, COD, CONDPG, CODCLI FROM rec where TOT not null and DATAEMS not null order by COD", null);		
+		String sqlVendaC = "SELECT FANTASIA, RAZAO, CNPJ, TOT, DATAEMS, VENDEDOR, COD, CONDPG, CODCLI FROM rec where TOT not null and DATAEMS not null and SINCRONIZADO=\"" + sinc + "\" order by COD";  
+		rec = db.rawQuery(sqlVendaC, null);		
 		totalDBRec = rec.getCount();
 		String respostaRetornada = null;
+		//Log.d("sqlVendaC", sqlVendaC);
 		
 		VendedorDAO vdao = new VendedorDAO(getBaseContext());
         String vendedor = vdao.getVendedor();
@@ -114,15 +116,14 @@ public class ReplicarVendasOff1 extends ListActivity {
 			}
 			paramentosPost.add(new BasicNameValuePair("codcli", rec.getString(rec.getColumnIndex("codcli"))));
 			
-/*			
 	        RecDAO recDAO = new RecDAO(getBaseContext());
-			RecVO recVO = recDAO.getById(rec.getColumnIndex("cod"));
+			RecVO recVO = recDAO.getById(Integer.parseInt(rec.getString(rec.getColumnIndex("cod"))));
 			recVO.setSincronizado("S");
 			
 			if (recDAO.update(recVO)) {
 				//Toast.makeText(getBaseContext(), "Sucesso!", Toast.LENGTH_SHORT).show();
 			}
-*/
+			
 			try {
 				respostaRetornada = ConexaoHTTPClient.executaHttpPost(url, paramentosPost);
 			} catch (Exception e) {
@@ -141,10 +142,12 @@ public class ReplicarVendasOff1 extends ListActivity {
 	}
 
 	public void iniciarReplicacaoVendaD(){
-		prodvend = db.rawQuery("SELECT prod, q1, vl_u, vl_t, codvend, vendedor, data, codcli, codprod, unid FROM prod_vend", null);		
+		String sqlVendaD = "SELECT cod, prod, q1, vl_u, vl_t, codvend, vendedor, data, codcli, codprod, unid FROM prod_vend where SINCRONIZADO=\"" + sinc + "\" order by COD";
+		prodvend = db.rawQuery(sqlVendaD, null);		
 		String respostaRetornada = null;
 		VendedorDAO vdao = new VendedorDAO(getBaseContext());
         String vendedor = vdao.getVendedor();
+        //Log.d("sqlVendaD", sqlVendaD);
         
         ConfigDAO configDAO = new ConfigDAO(getBaseContext());
         ConfigVO configVO = configDAO.getById(1);
@@ -178,15 +181,13 @@ public class ReplicarVendasOff1 extends ListActivity {
 			paramentosPost.add(new BasicNameValuePair("codprod", prodvend.getString(prodvend.getColumnIndex("codprod"))));
 			paramentosPost.add(new BasicNameValuePair("unid", prodvend.getString(prodvend.getColumnIndex("unid"))));
 			
-/*			
 			ProdVendDAO prodVendDAO = new ProdVendDAO(getBaseContext());
-			ProdVendVO prodVendVO = prodVendDAO.getById(prodvend.getColumnIndex("cod"));
+			ProdVendVO prodVendVO = prodVendDAO.getById(Integer.parseInt(prodvend.getString(prodvend.getColumnIndex("cod"))));
 			prodVendVO.setSincronizado("S");
 			
 			if (prodVendDAO.update(prodVendVO)) {
 				//Toast.makeText(getBaseContext(), "Sucesso!", Toast.LENGTH_SHORT).show();
 			}
-*/			
 			
 			try {
 				respostaRetornada = ConexaoHTTPClient.executaHttpPost(url, paramentosPost);				
