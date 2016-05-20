@@ -14,7 +14,7 @@ public class MenuPrincipal extends ListActivity{
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        
-	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastrar Clientes", "Listar Clientes", "Clientes UP", "Clientes em Atrazo", "Cadastrar Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet)", "Fechar"};
+	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastrar Clientes", "Listar Clientes", "Clientes UP", "Clientes em Atraso", "Cadastrar Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet)", "Fechar"};
 	        ArrayAdapter<String> aaMenu = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
 	        setListAdapter(aaMenu);
         	

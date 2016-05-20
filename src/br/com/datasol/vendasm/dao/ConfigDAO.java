@@ -15,7 +15,7 @@ public class ConfigDAO {
 
 	private static String table_name = "config";
 	private static Context ctx;
-	private static String[] columns = {"id", "url", "usuario", "senha"};
+	private static String[] columns = {"id", "url", "usuario", "senha", "filtrocliente"};
 	
 	public ConfigDAO(Context ctx){
 		this.ctx = ctx;
@@ -28,6 +28,7 @@ public class ConfigDAO {
 		ctv.put("url", vo.getUrl());
 		ctv.put("usuario", vo.getUsuario());
 		ctv.put("senha", vo.getSenha());
+		ctv.put("filtrocliente", vo.getFiltrocliente());
 		
 		return (db.insert(table_name, null, ctv) > 0 );
 	}
@@ -44,6 +45,7 @@ public class ConfigDAO {
 		ctv.put("url", vo.getUrl());
 		ctv.put("usuario", vo.getUsuario());
 		ctv.put("senha", vo.getSenha());
+		ctv.put("filtrocliente", vo.getFiltrocliente());
 		
 		return (db.update(table_name, ctv, "id=?", new String[]{vo.getId().toString()}) > 0);
 	}
@@ -61,6 +63,7 @@ public class ConfigDAO {
 			vo.setUrl(rs.getString(rs.getColumnIndex("url")));
 			vo.setUsuario(rs.getString(rs.getColumnIndex("usuario")));
 			vo.setSenha(rs.getString(rs.getColumnIndex("senha")));
+			vo.setFiltrocliente(rs.getString(rs.getColumnIndex("filtrocliente")));
 		}		
 		return vo;
 	}
@@ -73,7 +76,7 @@ public class ConfigDAO {
 		List<ConfigVO> lista = new ArrayList<ConfigVO>();
 		
 		while(rs.moveToNext()){
-			ConfigVO vo = new ConfigVO(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3));
+			ConfigVO vo = new ConfigVO(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 			lista.add(vo);
 		}		
 		return lista;

@@ -4,5 +4,10 @@
     <string name="app_name">DSVendasMovel</string>
     <string name="menu_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string-array name="arrayTipoFiltroCliente">
+        <item >Fantasia</item>
+        <item >Razão Social</item>
+    </string-array>
 
 </resources>

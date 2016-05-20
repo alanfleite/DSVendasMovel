@@ -6,9 +6,12 @@ import br.com.datasol.vendasm.vo.ConfigVO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class ConfigEditar extends Activity{
@@ -18,6 +21,7 @@ public class ConfigEditar extends Activity{
 	private EditText txtUrl;
 	private EditText txtUsuario;
 	private EditText txtSenha;
+	private Spinner spTipoFiltroCliente;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -36,11 +40,18 @@ public class ConfigEditar extends Activity{
 		txtUrl     = (EditText) findViewById(R.id.txtUrl);
 		txtUsuario = (EditText) findViewById(R.id.txtUsuario);
 		txtSenha   = (EditText) findViewById(R.id.txtSenha);
+		spTipoFiltroCliente = (Spinner) findViewById(R.id.spTipoFiltroCliente);
 		
 		txtCOD.setText(vo.getId().toString());
 		txtUrl.setText(vo.getUrl());
 		txtUsuario.setText(vo.getUsuario());
 		txtSenha.setText(vo.getSenha());
+		
+		ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.arrayTipoFiltroCliente, android.R.layout.simple_spinner_item);
+		
+		spTipoFiltroCliente.setAdapter(adapter);
+		
+		spTipoFiltroCliente.setSelection(adapter.getPosition(vo.getFiltrocliente()));
 		
 		btnOK.setOnClickListener(new View.OnClickListener() {
 			
@@ -52,6 +63,8 @@ public class ConfigEditar extends Activity{
 				vo.setUrl(txtUrl.getText().toString());
 				vo.setUsuario(txtUsuario.getText().toString());
 				vo.setSenha(txtSenha.getText().toString());
+				vo.setFiltrocliente(spTipoFiltroCliente.getSelectedItem().toString());
+				//Log.d("item spinner", spTipoFiltroCliente.getSelectedItem().toString());
 				
 				ConfigDAO dao = new ConfigDAO(getBaseContext());
 				if(dao.update(vo)){

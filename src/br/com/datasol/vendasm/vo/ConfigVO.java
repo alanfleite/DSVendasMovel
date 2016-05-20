@@ -6,16 +6,18 @@ public class ConfigVO {
 	private String url;
 	private String usuario;
 	private String senha;
+	private String filtrocliente;
 	
 	public ConfigVO(){
 		
 	}
 	
-	public ConfigVO(int id, String url, String usuario, String senha){
+	public ConfigVO(int id, String url, String usuario, String senha, String filtrocliente){
 		this.id = id;
 		this.url = url;
 		this.usuario = usuario;
 		this.senha = senha;
+		this.filtrocliente = filtrocliente;
 	}
 	
 	public Integer getId() {
@@ -48,5 +50,13 @@ public class ConfigVO {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getFiltrocliente() {
+		return filtrocliente;
+	}
+
+	public void setFiltrocliente(String filtrocliente) {
+		this.filtrocliente = filtrocliente;
 	}	
 }
