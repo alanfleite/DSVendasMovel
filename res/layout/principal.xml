@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtAno"
         android:layout_alignTop="@+id/ibtSair"
-        android:text="Versão: 10.0.39" 
+        android:text="Versão: 10.0.40" 
         android:textStyle="bold"        
         />
 
