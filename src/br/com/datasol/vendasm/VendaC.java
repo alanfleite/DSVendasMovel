@@ -134,8 +134,8 @@ public class VendaC extends Activity {
 				while(rec.moveToNext()){
 					
 					lstCliente[posicao] = "" + rec.getString(rec.getColumnIndex("razao")) // campo razao 
-			                                 + " - " + rec.getString(rec.getColumnIndex("usuario"))					
-					                         + " = " + rec.getString(rec.getColumnIndex("cidade"));
+			                                 + " = " + rec.getString(rec.getColumnIndex("usuario"))					
+					                         + " - " + rec.getString(rec.getColumnIndex("cidade"));
 					posicao++;
 				}			
 			}			
@@ -186,7 +186,7 @@ public class VendaC extends Activity {
                     //String razao = cliente.substring(u, c-1);        			
                     razao = cliente.substring(u, c-1);
         		} else if (filtroCliente.equals("Razão Social")){
-        			int u = cliente.indexOf("-");
+        			int u = cliente.indexOf("=");
                     //String fantasia = cliente.substring(0, u-1);                
                     //String razao = fantasia;
                     fantasia = cliente.substring(0, u-1);                
