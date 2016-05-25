@@ -7,11 +7,13 @@ import br.com.datasol.vendasm.R;
 import br.com.datasol.vendasm.adapters.ProdVendAdapter;
 import br.com.datasol.vendasm.auxilio.FormatarCampos;
 import br.com.datasol.vendasm.dao.Cad_cliDAO;
+import br.com.datasol.vendasm.dao.ConfigDAO;
 import br.com.datasol.vendasm.dao.EstoqueDAO;
 import br.com.datasol.vendasm.dao.ProdVendDAO;
 import br.com.datasol.vendasm.dao.RecDAO;
 import br.com.datasol.vendasm.dao.VendedorDAO;
 import br.com.datasol.vendasm.vo.Cad_cliVO;
+import br.com.datasol.vendasm.vo.ConfigVO;
 import br.com.datasol.vendasm.vo.EstoqueVO;
 import br.com.datasol.vendasm.vo.ProdVendVO;
 import br.com.datasol.vendasm.vo.RecVO;
@@ -114,15 +116,29 @@ public class VendaC extends Activity {
 
 		int contProdEstoq= rec.getCount();
 		lstCliente = new String[contProdEstoq];
-
-		while(rec.moveToNext()){
-			lstCliente[posicao] = "" + rec.getString(rec.getColumnIndex("usuario")) // campo fantasia 
-			//lstCliente[posicao] = "" + rec.getString(rec.getColumnIndex("razao"))
-//					                 + " - " + rec.getString(rec.getColumnIndex("cnpj"))
-	                                 + " - " + rec.getString(rec.getColumnIndex("razao"))					
-			                         + " = " + rec.getString(rec.getColumnIndex("cidade"));
-			posicao++;
-		}
+		
+		ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+		ConfigVO configVO = configDAO.getById(1);
+		
+		String filtroCliente = configVO.getFiltrocliente().toString();
+		
+		if (filtroCliente.equals("Fantasia")){
+			while(rec.moveToNext()){
+				
+				lstCliente[posicao] = "" + rec.getString(rec.getColumnIndex("usuario")) // campo fantasia 
+		                                 + " - " + rec.getString(rec.getColumnIndex("razao"))					
+				                         + " = " + rec.getString(rec.getColumnIndex("cidade"));
+				posicao++;
+			}			
+		} else if (filtroCliente.equals("Razão Social")){
+				while(rec.moveToNext()){
+					
+					lstCliente[posicao] = "" + rec.getString(rec.getColumnIndex("razao")) // campo razao 
+			                                 + " - " + rec.getString(rec.getColumnIndex("usuario"))					
+					                         + " = " + rec.getString(rec.getColumnIndex("cidade"));
+					posicao++;
+				}			
+			}			
 
 		lvCliente.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lstCliente));
 
@@ -153,14 +169,30 @@ public class VendaC extends Activity {
             public void onItemClick(AdapterView arg0, View view, int position, long index) {  
                 Mensagem("Cliente selecionado : " + lstCliente_Encontrados.get(position).toString());
                 String cliente = lstCliente_Encontrados.get(position).toString();
+                
+        		ConfigDAO configDAO = new ConfigDAO(getBaseContext());
+        		ConfigVO configVO = configDAO.getById(1);
+        		
+        		String filtroCliente = configVO.getFiltrocliente().toString();
+                String fantasia = "";                
+                String razao = "";        		
 
-                int u = cliente.indexOf("-");
-                String fantasia = cliente.substring(0, u);
-                u = u + 2;
-                int c = cliente.indexOf("=");
-                //String cnpj = cliente.substring(u, c-1);
-                String razao = cliente.substring(u, c-1);
-                                
+        		if (filtroCliente.equals("Fantasia")){
+        			int u = cliente.indexOf("-");
+                    //String fantasia = cliente.substring(0, u);                
+        			fantasia = cliente.substring(0, u);
+                    u = u + 2;
+                    int c = cliente.indexOf("=");
+                    //String razao = cliente.substring(u, c-1);        			
+                    razao = cliente.substring(u, c-1);
+        		} else if (filtroCliente.equals("Razão Social")){
+        			int u = cliente.indexOf("-");
+                    //String fantasia = cliente.substring(0, u-1);                
+                    //String razao = fantasia;
+                    fantasia = cliente.substring(0, u-1);                
+                    razao = fantasia;        			
+        		}			
+                
                 final Cad_cliDAO dao = new Cad_cliDAO(getBaseContext());
     			//final Cad_cliVO vo = dao.getByCnpj(cnpj);
                 final Cad_cliVO vo = dao.getByRazao(razao);

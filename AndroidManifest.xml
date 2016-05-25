@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.datasol.vendasm"
-    android:versionCode="1037"
-    android:versionName="1.0.37" >
+    android:versionCode="1039"
+    android:versionName="1.0.39" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -33,6 +33,8 @@
         <activity android:name="ListarEstoque"></activity>
         <activity android:name="ListarEstoque1"></activity>
         <activity android:name="ListarVendas"></activity>
+        <activity android:name="ListarVendasSincronizadas"></activity>
+        <activity android:name="ListarVendasNaoSincronizadas"></activity>
         <activity android:name="MenuPrincipal"></activity>
         <activity android:name="Principal"></activity>
         <activity android:name="Produtos"></activity>
@@ -48,7 +50,7 @@
         <activity android:name="VendaD"></activity>        
         <activity android:name="Vendedor"></activity>
         <activity android:name="VendedorEditar"></activity>
-        <activity android:name="VendedorListar"></activity>
+        <activity android:name="VendedorListar"></activity>        
     </application>
 
 </manifest>

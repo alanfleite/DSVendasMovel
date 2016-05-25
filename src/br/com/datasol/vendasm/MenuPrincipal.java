@@ -14,7 +14,7 @@ public class MenuPrincipal extends ListActivity{
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        
-	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastrar Clientes", "Listar Clientes", "Clientes UP", "Clientes em Atraso", "Cadastrar Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet)", "Fechar"};
+	        String [] menu = new String[] {"Cadastrar Configurações", "Listar Configurações", "Cadastrar Clientes", "Listar Clientes", "Clientes UP", "Clientes em Atraso", "Cadastrar Vendedor", "Listar Vendedor", "Listar Produtos", "Vendas por Período(Servidor)", "Listar Vendas(Tablet) - Sincronizadas", "Listar Vendas(Tablet) - Não Sincronizadas", "Fechar"};
 	        ArrayAdapter<String> aaMenu = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
 	        setListAdapter(aaMenu);
         	
@@ -56,8 +56,11 @@ public class MenuPrincipal extends ListActivity{
 		 case 9:
 			 startActivity(new Intent(this,VendasPer.class)); break;
 		 case 10:
-			 startActivity(new Intent(this,ListarVendas.class)); break;
+			 startActivity(new Intent(this,ListarVendasSincronizadas.class)); break;
+			 // totdasstartActivity(new Intent(this,ListarVendas.class)); break;
 		 case 11:
+			 startActivity(new Intent(this,ListarVendasNaoSincronizadas.class)); break;			 
+		 case 12:
 			 finish(); break;
 			 
 		default: finish();

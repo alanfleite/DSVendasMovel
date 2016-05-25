@@ -233,6 +233,5 @@ public class RecDAO {
 		 * 
 		 * return listaVendaC;
 		 */
-	}
-	
+	}	
 }

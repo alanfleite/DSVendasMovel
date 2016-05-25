@@ -72,6 +72,8 @@ public class VendaD extends Activity {
 	private String TotalGeral;
 	private int contProdutos=0;
 	String idVendaC;
+	private int codvend = 0;
+	private String codvendStr;
 
 	EditText etProcurar;
 	EditText txtProduto;
@@ -123,7 +125,10 @@ public class VendaD extends Activity {
 		
 		//registerForContextMenu(ltwEstoq);	
 		
-		buscarUltimaVenda();
+		//buscarUltimaVenda(); 
+		//Log.d("vendad", idVendaC);
+		//buscarVenda(idVendaC);
+		recebeIDVendaC();
 /*
 		if (buscarProduto > 0) {
 			
@@ -361,6 +366,17 @@ public class VendaD extends Activity {
 		ltwProdutosVenda.setAdapter(new ProdVendAdapter(getBaseContext(), listaProdutosVenda));
 	}
 	
+	protected void buscarVenda(String codvend) {
+			final RecDAO dao = new RecDAO(getBaseContext());
+			final RecVO vo = dao.getById(Integer.parseInt(codvend));
+			
+			idVendaC   = vo.getCod().toString();
+			codCliente = vo.getCodcli().toString();
+			txvVlTotalG.setText(vo.getTot());	
+		
+		listarProdutosVenda();
+	}
+	
 	protected void buscarUltimaVenda() {
 		final RecDAO dao = new RecDAO(getBaseContext());
 		final RecVO vo = dao.getUltimo();
@@ -368,6 +384,8 @@ public class VendaD extends Activity {
 		idVendaC   = vo.getCod().toString();
 		codCliente = vo.getCodcli().toString();
 		txvVlTotalG.setText(vo.getTot());
+		
+		listarProdutosVenda();
 	}
 	
 	protected void buscarTotalProdutos(){
@@ -447,7 +465,25 @@ public class VendaD extends Activity {
                 }  
             }  
         }  
-    }  
+    } 
+    
+	public void recebeIDVendaC(){
+		String idvendac1="";
+		Intent intent = getIntent();
+		
+		if (intent != null){
+			Bundle parametros = intent.getExtras();
+			
+			if(parametros != null){
+				idvendac1 = parametros.getString("idvendac1");
+				buscarVenda(idvendac1);
+			}else{
+				buscarUltimaVenda();
+			}
+		}
+		
+		//return idvendac1;
+	}    
     
     private void Mensagem(String msg)   
     {  
