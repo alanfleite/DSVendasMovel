@@ -7,8 +7,8 @@
     tools:ignore="MergeRootFrame" >
 
     <AbsoluteLayout
-        android:layout_width="398dp"
-        android:layout_height="match_parent"
+        android:layout_width="346dp"
+        android:layout_height="338dp"
         android:layout_weight="0.53"
         android:orientation="vertical" >
 
@@ -18,7 +18,7 @@
 
             <Button
                 android:id="@+id/btNovoVendaC"
-                android:layout_width="wrap_content"
+                android:layout_width="67dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/atualizar"
                 android:text="Novo"
@@ -26,7 +26,7 @@
 
             <Button
                 android:id="@+id/btSalvar"
-                android:layout_width="wrap_content"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/salvar"
                 android:text="Salvar"
@@ -34,7 +34,7 @@
 
             <Button
                 android:id="@+id/btAlterar"
-                android:layout_width="wrap_content"
+                android:layout_width="79dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/atualizar"
                 android:text="Alterar"
@@ -42,11 +42,20 @@
 
             <Button
                 android:id="@+id/btApagar"
-                android:layout_width="wrap_content"
+                android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/apagar"
                 android:text="Apagar"
                 android:textColor="#333333" />
+            
+	        <Button
+	            android:id="@+id/btVoltarCad"
+	            android:layout_width="55dp"
+	            android:layout_height="wrap_content"
+	            android:drawableTop="@drawable/fechar"
+	            android:text="Fec" 
+	            android:textColor="#333333" />
+            
         </LinearLayout>
 
         <LinearLayout
@@ -58,12 +67,12 @@
 
             <AbsoluteLayout
                 android:layout_width="match_parent"
-                android:layout_height="378dp"
+                android:layout_height="271dp"
                 android:orientation="vertical" >
 
                 <EditText
                     android:id="@+id/txtCod"
-                    android:layout_width="106dp"
+                    android:layout_width="91dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-20dp"
                     android:layout_x="15dp"
@@ -80,42 +89,9 @@
                     android:layout_y="4dp"
                     android:text="Código" />
 
-                <TextView
-                    android:id="@+id/txvData"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_x="138dp"
-                    android:layout_y="4dp"
-                    android:text="Data" />
-
-                <EditText
-                    android:id="@+id/txtData"
-                    android:layout_width="129dp"
-                    android:layout_height="wrap_content"
-                    android:layout_x="132dp"
-                    android:layout_y="12dp"
-                    android:ems="10" />
-
-                <TextView
-                    android:id="@+id/txvTotalGeral"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_x="268dp"
-                    android:layout_y="4dp"
-                    android:text="Total Geral" />
-
-                <EditText
-                    android:id="@+id/txtTotalVendaC"
-                    android:layout_width="109dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
-                    android:layout_x="267dp"
-                    android:layout_y="12dp"
-                    android:ems="10" />
-
                 <EditText
                     android:id="@+id/txtFantasia"
-                    android:layout_width="350dp"
+                    android:layout_width="313dp"
                     android:layout_height="wrap_content"
                     android:layout_x="17dp"
                     android:layout_y="65dp"
@@ -133,7 +109,7 @@
 
                 <EditText
                     android:id="@+id/txtRazao"
-                    android:layout_width="350dp"
+                    android:layout_width="317dp"
                     android:layout_height="wrap_content"
                     android:layout_x="15dp"
                     android:layout_y="112dp"
@@ -156,23 +132,15 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="3dp"
                     android:layout_x="28dp"
-                    android:layout_y="168dp"
+                    android:layout_y="152dp"
                     android:text="CNPJ" />
 
                 <EditText
                     android:id="@+id/txtCnpj"
-                    android:layout_width="350dp"
+                    android:layout_width="157dp"
                     android:layout_height="wrap_content"
-                    android:layout_x="21dp"
-                    android:layout_y="179dp"
-                    android:ems="10" />
-
-                <EditText
-                    android:id="@+id/txtCidade"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_x="19dp"
-                    android:layout_y="227dp"
+                    android:layout_x="22dp"
+                    android:layout_y="170dp"
                     android:ems="10" />
 
                 <TextView
@@ -181,16 +149,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="3dp"
-                    android:layout_x="19dp"
-                    android:layout_y="217dp"
+                    android:layout_x="183dp"
+                    android:layout_y="154dp"
                     android:text="Cidade" />
 
                 <EditText
-                    android:id="@+id/txtCondPgto"
-                    android:layout_width="350dp"
+                    android:id="@+id/txtCidade"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_x="21dp"
-                    android:layout_y="273dp"
+                    android:layout_x="173dp"
+                    android:layout_y="168dp"
                     android:ems="10" />
 
                 <TextView
@@ -199,50 +167,53 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="3dp"
-                    android:layout_x="23dp"
-                    android:layout_y="261dp"
+                    android:layout_x="26dp"
+                    android:layout_y="209dp"
                     android:text="Cond. Pgto" />
+
+                <EditText
+                    android:id="@+id/txtCondPgto"
+                    android:layout_width="312dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="20dp"
+                    android:layout_y="225dp"
+                    android:ems="10" />
+
+                <EditText
+                    android:id="@+id/txtTotalVendaC"
+                    android:layout_width="94dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_x="241dp"
+                    android:layout_y="10dp"
+                    android:ems="10" />
+
+                <TextView
+                    android:id="@+id/txvTotalGeral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="239dp"
+                    android:layout_y="8dp"
+                    android:text="Total Geral" />
+
+                <TextView
+                    android:id="@+id/txvData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="112dp"
+                    android:layout_y="6dp"
+                    android:text="Data" />
+
+                <EditText
+                    android:id="@+id/txtData"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="111dp"
+                    android:layout_y="10dp"
+                    android:ems="10" />
+
             </AbsoluteLayout>
 
-        </LinearLayout>
-    </AbsoluteLayout>
-
-    <AbsoluteLayout
-        android:layout_width="383dp"
-        android:layout_height="match_parent"
-        android:layout_x="400dp"
-        android:layout_y="1dp"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/btVoltarCad"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="240dp"
-                android:layout_marginRight="116dp"
-                android:drawableLeft="@drawable/fechar"
-                android:text="Fechar" />
-
-            <EditText
-                android:id="@+id/etProcurar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="Procurar" >
-
-                <requestFocus />
-            </EditText>
-
-            <ListView
-                android:id="@+id/ltvDados"
-                android:layout_width="match_parent"
-                android:layout_height="322dp"
-                android:layout_alignParentTop="true" >
-            </ListView>
         </LinearLayout>
     </AbsoluteLayout>
 
@@ -253,5 +224,38 @@
         android:layout_x="770dp"
         android:layout_y="-95dp"
         android:text="Button" />
+
+    <AbsoluteLayout
+        android:layout_width="330dp"
+        android:layout_height="120dp"
+        android:layout_x="16dp"
+        android:layout_y="436dp"
+        android:orientation="vertical" >
+    </AbsoluteLayout>
+
+    <LinearLayout
+        android:layout_width="351dp"
+        android:layout_height="202dp"
+        android:layout_x="10dp"
+        android:layout_y="354dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/etProcurar"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:hint="Procurar" >
+
+            <requestFocus />
+        </EditText>
+
+        <ListView
+            android:id="@+id/ltvDados"
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:layout_alignParentTop="true"
+            android:layout_weight="0.78" >
+        </ListView>
+    </LinearLayout>
 
 </AbsoluteLayout>

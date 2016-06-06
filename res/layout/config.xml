@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/txtUrl"
-        android:layout_width="404dp"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:ems="10" >
 
@@ -34,9 +34,9 @@
         android:text="Tipo Filtro Cliente" />
 		
 	<Spinner
-        android:id="@+id/spTipoFiltroCliente"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content" />
+	    android:id="@+id/spTipoFiltroCliente"
+	    android:layout_width="340dp"
+	    android:layout_height="wrap_content" />
     
 	<TextView
         android:id="@+id/txvUsuario"
@@ -48,7 +48,7 @@
 	
     <EditText
         android:id="@+id/txtUsuario"
-        android:layout_width="404dp"
+        android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:ems="10" >
     </EditText>
@@ -64,7 +64,7 @@
 
     <EditText
         android:id="@+id/txtSenha"
-        android:layout_width="404dp"
+        android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:ems="10" >
     </EditText>

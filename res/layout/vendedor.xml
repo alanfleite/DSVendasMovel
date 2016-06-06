@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/txtNome"
-        android:layout_width="404dp"
+        android:layout_width="346dp"
         android:layout_height="wrap_content"
         android:ems="10" >
 

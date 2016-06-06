@@ -42,7 +42,7 @@
 
             <EditText
                 android:id="@+id/txtFantasia"
-                android:layout_width="361dp"
+                android:layout_width="344dp"
                 android:layout_height="wrap_content"
                 android:ems="10" >
 
@@ -59,7 +59,7 @@
 
             <EditText
                 android:id="@+id/txtRazao"
-                android:layout_width="359dp"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
                 android:ems="10" >
             </EditText>
@@ -74,7 +74,7 @@
 
             <EditText
                 android:id="@+id/txtCnpj"
-                android:layout_width="356dp"
+                android:layout_width="337dp"
                 android:layout_height="wrap_content"
                 android:ems="10" >
             </EditText>
@@ -141,7 +141,7 @@
 
         <EditText
             android:id="@+id/txtTotalVendaC"
-            android:layout_width="145dp"
+            android:layout_width="132dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_x="208dp"
@@ -159,7 +159,7 @@
 
     <AbsoluteLayout
         android:layout_width="383dp"
-        android:layout_height="match_parent"
+        android:layout_height="262dp"
         android:layout_x="400dp"
         android:layout_y="1dp"
         android:orientation="vertical" >
@@ -174,7 +174,7 @@
         <ListView
             android:id="@+id/listProdutos"
             android:layout_width="384dp"
-            android:layout_height="227dp"
+            android:layout_height="143dp"
             android:layout_x="-1dp"
             android:layout_y="135dp" >
         </ListView>

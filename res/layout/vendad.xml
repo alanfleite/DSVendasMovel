@@ -7,8 +7,8 @@
     tools:ignore="MergeRootFrame" >
 
     <AbsoluteLayout
-        android:layout_width="398dp"
-        android:layout_height="match_parent"
+        android:layout_width="347dp"
+        android:layout_height="217dp"
         android:layout_weight="0.53"
         android:orientation="vertical" >
 
@@ -16,28 +16,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-        <EditText  
-            android:hint="Procurar"  
-            android:id="@+id/etProcurar"  
-            android:layout_height="wrap_content"  
-            android:layout_width="fill_parent">  
+
+        <EditText
+            android:id="@+id/etProcurar"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:hint="Procurar" >
+  
         </EditText>             
 
             <ListView
                 android:id="@+id/ltvDados"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="171dp"
                 android:layout_alignParentTop="true" >
             </ListView>
         </LinearLayout>
 
     </AbsoluteLayout>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="770dp"
+        android:layout_y="-95dp"
+        android:text="Button" />
+
     <AbsoluteLayout
-        android:layout_width="383dp"
-        android:layout_height="match_parent"
-        android:layout_x="400dp"
-        android:layout_y="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="332dp"
+        android:layout_x="0dp"
+        android:layout_y="223dp"
         android:orientation="vertical" >
 
         <RelativeLayout
@@ -48,8 +58,8 @@
 
         <ListView
             android:id="@+id/listProdutos"
-            android:layout_width="384dp"
-            android:layout_height="227dp"
+            android:layout_width="337dp"
+            android:layout_height="185dp"
             android:layout_x="-1dp"
             android:layout_y="135dp" >
         </ListView>
@@ -61,60 +71,6 @@
             android:layout_x="30dp"
             android:layout_y="30dp"
             android:text="Produto" />
-<!-- 
-        <ImageButton
-            android:id="@+id/imbBuscarProduto1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="27dp"
-            android:layout_y="86dp"
-            android:src="@drawable/pesquisa" />
- -->
-        <EditText
-            android:id="@+id/txtVU"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
-            android:layout_x="264dp"
-            android:layout_y="95dp"
-            android:ems="10" />      
-        
-        <Button
-            android:id="@+id/btVoltarCad"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="240dp"
-            android:layout_marginRight="116dp"
-            android:layout_marginTop="-17dp"
-            android:layout_x="274dp"
-            android:layout_y="0dp"
-            android:drawableLeft="@drawable/fechar"
-            android:text="Fechar" />
-
-        <TextView
-            android:id="@+id/txvQt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="192dp"
-            android:layout_y="93dp"
-            android:text="Qt" />
-
-        <EditText
-            android:id="@+id/txtQt"
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:layout_x="194dp"
-            android:layout_y="97dp"
-            android:ems="10"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/txvVU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="101dp"
-            android:layout_x="269dp"
-            android:layout_y="91dp"
-            android:text="V. Unit." />
 
         <TextView
             android:id="@+id/txvVlTotal"
@@ -126,15 +82,12 @@
 
         <EditText
             android:id="@+id/txtProduto"
-            android:layout_width="366dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_x="13dp"
             android:layout_y="39dp"
-            android:ems="10" >
-
-            <requestFocus />
-        </EditText>
+            android:ems="10" />
 
         <ImageButton
             android:id="@+id/imbAdicionarProduto1"
@@ -144,14 +97,52 @@
             android:layout_y="97dp"
             android:src="@drawable/adicionar" />
 
-    </AbsoluteLayout>
+        <Button
+            android:id="@+id/btVoltarCad"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="116dp"
+            android:layout_marginTop="-17dp"
+            android:layout_x="231dp"
+            android:layout_y="0dp"
+            android:drawableLeft="@drawable/fechar"
+            android:text="Fechar" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="770dp"
-        android:layout_y="-95dp"
-        android:text="Button" />
+        <EditText
+            android:id="@+id/txtVU"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_x="235dp"
+            android:layout_y="94dp"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/txvVU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="101dp"
+            android:layout_x="237dp"
+            android:layout_y="91dp"
+            android:text="V. Unit." />
+
+        <TextView
+            android:id="@+id/txvQt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="164dp"
+            android:layout_y="91dp"
+            android:text="Qt" />
+
+        <EditText
+            android:id="@+id/txtQt"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_x="156dp"
+            android:layout_y="96dp"
+            android:ems="10"
+            android:inputType="number" />
+
+    </AbsoluteLayout>
 
 </AbsoluteLayout>
